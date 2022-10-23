@@ -2,19 +2,22 @@ import { useState, useEffect } from "react";
 import "./CohortList.css";
 
 export default function CohortList({ cohortCodes, filterStudentsByCohort }) {
+  cohortCodes = Object.keys(cohortCodes).sort(
+    (a, b) => b.slice(-4) - a.slice(-4)
+  );
   return (
     <div className="cohort-list-container">
       <h3>Choose a Class by Start Date</h3>
-      <ul>
+      <ul className="cohort-list">
         <li key="all" onClick={() => filterStudentsByCohort("All Students")}>
           All Students
         </li>
-        {cohortCodes &&
-          Object.entries(cohortCodes).map((cohort, i) => (
-            <li key={i} onClick={() => filterStudentsByCohort(cohort[0])}>
-              {cohort[0].slice(0, -4)} {cohort[0].slice(-4)}
-            </li>
-          ))}
+
+        {cohortCodes.map((cohort, i) => (
+          <li key={i} onClick={() => filterStudentsByCohort(cohort)}>
+            {cohort.slice(0, -4) + " " + cohort.slice(-4)}
+          </li>
+        ))}
       </ul>
     </div>
   );

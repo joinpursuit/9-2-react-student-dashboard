@@ -1,5 +1,10 @@
+.student-list-container {
+  padding: 0 40px;
+}
+
 .student-list {
   list-style: none;
+  padding: 0;
 }
 .student-list li {
   margin-bottom: 15px;

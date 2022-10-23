@@ -1,9 +1,9 @@
 .cohort-list-container {
   padding: 0px 10px;
 }
-.cohort-list-container ul {
-  padding: none;
+.cohort-list {
   list-style: none;
+  padding-left: 0;
 }
 
 .cohort-list-container li {

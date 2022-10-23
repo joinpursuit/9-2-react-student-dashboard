@@ -7,7 +7,7 @@ import data from "./data/data.json";
 function App() {
   const [students, setStudents] = useState(data);
   const [filteredStudents, setFilteredStudents] = useState(data);
-  const [cohortCodes, setCohortCodes] = useState(null);
+  const [cohortCodes, setCohortCodes] = useState([]);
   const [selectedCohort, setSelectedCohort] = useState("All Students");
 
   function filterStudentsByCohort(cohort) {
