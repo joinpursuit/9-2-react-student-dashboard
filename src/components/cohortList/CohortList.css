@@ -8,5 +8,12 @@
 
 .cohort-list-container li {
   border-bottom: 2px solid #5c936e;
-  padding: 10px;
+  padding: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease-in;
+}
+
+.cohort-list-container li:hover {
+  transform: scale(1.1);
 }

@@ -25,3 +25,8 @@
 .card .on-track {
   margin-top: 20px;
 }
+
+.total-students {
+  color: #5c936e;
+  font-weight: bold;
+}
