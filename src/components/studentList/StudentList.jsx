@@ -1,5 +1,13 @@
 import "./StudentList.css";
 export default function StudentList({ students }) {
+  function formatDob(dob) {
+    const date = new Date(dob).toLocaleDateString("default", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    });
+    return date;
+  }
   return (
     <div className="student-list-container">
       <h3>Student List</h3>
@@ -22,7 +30,7 @@ export default function StudentList({ students }) {
                   </p>
                   <p>{student.username}</p>
                   <p>
-                    <span id="bd">Birthday: </span> {student.dob}
+                    <span id="bd">Birthday: </span> {formatDob(student.dob)}
                   </p>
                 </div>
                 <div className="on-track">
