@@ -1,0 +1,12 @@
+.cohort-list-container {
+  padding: 0px 10px;
+}
+.cohort-list-container ul {
+  padding: none;
+  list-style: none;
+}
+
+.cohort-list-container li {
+  border-bottom: 2px solid #5c936e;
+  padding: 10px;
+}

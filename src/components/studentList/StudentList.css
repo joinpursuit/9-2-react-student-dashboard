@@ -1,0 +1,27 @@
+.student-list {
+  list-style: none;
+}
+.student-list li {
+  margin-bottom: 15px;
+  border: 1px solid #5c936e;
+}
+.card {
+  display: grid;
+  grid-template-columns: 30% 50% 20%;
+  padding: 20px;
+}
+
+.card .profile-pic {
+  width: 100%;
+}
+.profile-pic img {
+  display: block;
+  width: 100%;
+}
+.card .info {
+  padding: 20px;
+}
+
+.card .on-track {
+  margin-top: 20px;
+}

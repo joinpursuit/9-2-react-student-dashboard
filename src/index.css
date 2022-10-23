@@ -9,12 +9,13 @@ html {
 
 .App {
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 100px 1fr;
   font-family: "Open Sans", serif;
 }
 
 main {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  padding: 20px 50px;
+  padding: 40px 50px;
+  gap: 30px;
 }
