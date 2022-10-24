@@ -35,7 +35,7 @@ This project includes some existing code which will help you complete the featur
 
 ## Features
 
-Each of the features below will count as 1 point towards your overall score. While there is a styled website to serve as a reference, you are not required to style the page unless the feature specifically asks you to do so.
+Each of the features below will count as 1 point towards your overall score. While there is a styled website to serve as a reference, you are not requiared to style the page unless the feature specifically asks you to do so.
 
 _Take careful note of the requirements._ Sometimes an image will show slightly more or slightly less than what you need to score the point.
 

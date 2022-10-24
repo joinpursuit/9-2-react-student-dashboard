@@ -1,0 +1,52 @@
+header {
+    background-color: rgb(57, 135, 199);
+    text-align: center;
+    height: 100px;
+    padding: 50px 0;
+    color: white;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.cohorts {
+    text-align: center;
+}
+
+.student-card {
+    border: 1px solid black;
+    display: flex;
+    column-gap: 30px;
+}
+
+img {
+    height: 150px;
+    width: 150px;
+}
+
+a, .birthday {
+    color: green;
+}
+
+a {
+    text-decoration: underline;
+}
+
+.photo {
+    padding: 40px;
+}
+
+li {
+    list-style: none;
+}
+
+li {
+    font-size: xxx-large;
+    font-weight: bold;
+}
+
+li:hover {
+    color: red;
+}
