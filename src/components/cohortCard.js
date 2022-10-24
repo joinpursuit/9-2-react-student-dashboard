@@ -17,7 +17,6 @@ export default function ({cohort}) {
   /////event////////////////////////////////////////////////////
   const on_show_more_click = (evt)=>{
     if(!showMore) {
-      console.log("show",evt.target.parentNode.parentNode.parentNode.parentNode);
       evt.target.parentNode.parentNode.parentNode.parentNode.classList.add("cohortlistcontent-li-active");
     }
     else{

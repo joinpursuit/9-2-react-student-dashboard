@@ -38,7 +38,7 @@ export default function ({students,updateCohortList,updateTitle}){
   return (
     <>
       <div>
-
+        
       </div>
       <h3 style={{margin:"5.5px"}}>Choose a Class by Start Date</h3>
       <ul className="cohortlist">

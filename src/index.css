@@ -38,7 +38,6 @@
 }
 .cohortlist li:hover{
   background-color: lightyellow;
-
 }
 .cohortlistcontent{
   height: calc(100vh - 98px);
@@ -53,39 +52,35 @@
   transition: all 0.3s;
   max-height: 100px;
 }
-
 .cohortlistcontent-li:hover{
-  background-color: lightyellow;
-  border: 2px gold solid;
-
+  background-color: rgb(252, 252, 243);
+  border-right: 2px gold solid;
+  border-bottom: 2px gold solid;
+  border-left: 1px gold solid;
+  border-top: 1px gold solid;
+  box-shadow: 0px 4px 4px 0px lightgray;
 }
 .cohortlistcontent-li-active{
   max-height: 500px;
-  
 }
 .cohortcard{
   display: flex;
-}
-.cohortcard-active{
-  transform: scale(2);
-  transition: all 0.5s ease-in-out;
 }
 .cohortcard div:last-of-type {
   margin-left: auto;
   color: var(--main-bg-color);
 }
-
 .cohortcard img{
   width: 68px;
   height: auto;
   border: whitesmoke 1px solid;
   margin-right: 10px;
+  border-radius: 4px;
 }
 .cohortshowmore{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin: 10px;
-
 }
 .cohortshowmore p{
   padding: 5px;
@@ -105,7 +100,6 @@
   margin-top: 20px;
   border-top: 2px var(--main-bg-color) solid;
 }
-
 .oneononenote h3{
   margin: 20px 0px;
 }
@@ -114,8 +108,7 @@
 }
 .notebutton{
   padding: 0px 5px;
-  border-radius: 4px;
-  
+  border-radius: 4px;  
 }
 .onoononenote-ol{
   margin: 10px;
