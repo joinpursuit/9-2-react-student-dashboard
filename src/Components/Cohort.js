@@ -31,13 +31,14 @@ function GetAllCohorts({ data, setTtitle, setStudentData }) {
       <br />
       <div className="start-date">
         <ul>
-          <li onClick={handleClick} id="all-students">
+          <li className="cohort-list" onClick={handleClick} id="all-students">
             All Students
-          </li>
+                  </li>
+                  <br/>
           <hr />
           {allCohorts.map((cohort) => {
             return (
-              <li key={cohort} onClick={handleClick} id={cohort}>
+              <li className="cohort-list" key={cohort} onClick={handleClick} id={cohort}>
                 {cohort.slice(0, -4) + " " + cohort.slice(-4)}
                 <hr></hr>
               </li>

@@ -4,6 +4,7 @@ header {
     height: 100px;
     padding: 50px 0;
     color: white;
+    font-size: x-large;
 }
 
 .container {
@@ -26,27 +27,75 @@ img {
     width: 150px;
 }
 
-a, .birthday {
-    color: green;
+.show-hide, .birthday {
+    color: rgb(57, 135, 199);
 }
 
-a {
+.show-hide {
     text-decoration: underline;
+    border: none;
+    background-color: white;
+    cursor: pointer;
 }
 
 .photo {
     padding: 40px;
 }
 
-li {
+.cohort-list {
     list-style: none;
 }
 
-li {
+.cohort-list {
     font-size: xxx-large;
     font-weight: bold;
 }
 
-li:hover {
+.cohort-list:hover {
     color: red;
+}
+
+.on-track {
+    display: grid;
+    align-items: center;
+}
+
+.check {
+    color: green;
+}
+
+.uncheck {
+    color: red;
+}
+
+.student-container {
+    display: grid;
+}
+
+.green {
+    color: green;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.red {
+    color: red;
+}
+
+.top-details {
+    display: flex;
+    column-gap: 50px;
+    border-bottom: 1px solid black;
+}
+
+.note-button {
+    background-color: rgb(57, 135, 199);
+    color: white;
+}
+
+form {
+    border: 1px solid black;
+    padding: 10px;
 }

@@ -23,7 +23,7 @@ function App() {
           />
         </div>
         <div>
-          <HandleCohortsChange studentData={studentData} title={title} />
+          <HandleCohortsChange studentData={studentData} title={title}/>
         </div>
       </div>
     </div>
