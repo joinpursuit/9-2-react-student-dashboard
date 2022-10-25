@@ -19,6 +19,7 @@ export default function OneOnOne({ student, addNoteToStudent }) {
   };
   return (
     <div className="one-on-one">
+      <h3>1-on-1 Notes</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="commenter"> Commenter Name </label>
         <input
