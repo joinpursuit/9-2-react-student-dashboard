@@ -1,0 +1,18 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  /* width: fit-content; */
+  align-items: center;
+  border: solid 5px rgb(57, 198, 130);
+  margin-bottom: 10px;
+}
+
+.face {
+  width: 200px;
+  height: 200px;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
