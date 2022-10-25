@@ -62,6 +62,7 @@
 }
 .cohortlistcontent-li-active{
   max-height: 500px;
+  
 }
 .cohortcard{
   display: flex;

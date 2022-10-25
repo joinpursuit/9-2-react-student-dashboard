@@ -6,15 +6,15 @@ function short_hand_name(names)
   return `${names["preferredName"]} ${middleName} ${names['surname']}`
 }
 export default function ({cohort}) {
-  ////variable///////////////////////////////////////////////////
+  ////variable////////////////////////////////////////////
   const local_stroage_key = "note"+cohort.id;
   let previus = JSON.parse(localStorage.getItem(local_stroage_key))||{notes:[]};//local stroage previus inputed cohort data 
   const [showMore,updateShowMore] = useState(false);
-  const [note,updateNote] = useState({name:"",comment:""});//note form to stroage
+  let [note,updateNote] = useState({name:"",comment:""});//note form to stroage
   const [notes,updateNotes] = useState(previus['notes']||[]);//note list to display
   let showOnTracktoGraduate = (Object.values(cohort.certifications).some(el=>el)||cohort.codewars.current.total>600);
   let codewarsPercent = Math.round(cohort.codewars.current.total/cohort.codewars.goal.total*100);
-  /////event////////////////////////////////////////////////////
+  /////event/////////////////////////////////////////////
   const on_show_more_click = (evt)=>{
     if(!showMore) {
       evt.target.parentNode.parentNode.parentNode.parentNode.classList.add("cohortlistcontent-li-active");
@@ -27,6 +27,14 @@ export default function ({cohort}) {
   }
   const on_note_submit = (evt)=>{
     evt.preventDefault();
+    for(let x in note){
+      if(!note[x]) {
+        alert(`Please fill out the ${x}!`);
+        evt.target[x].focus();
+        return;
+      }
+    }
+    note['datetime']=Date("now");
     previus['notes'] = previus['notes'] ? previus['notes'].concat(note):[note];
     localStorage.setItem(local_stroage_key, JSON.stringify(previus));
     updateNotes([...previus['notes']]);
@@ -35,7 +43,7 @@ export default function ({cohort}) {
   const on_note_change = (evt) =>{
     updateNote(pv=>({...pv,[evt.target.name]:evt.target.value}));
   }
-  /////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////
   function check_codewars_color(){
     if(codewarsPercent>=100){ 
       return "lightgreen"
@@ -44,7 +52,7 @@ export default function ({cohort}) {
     }else 
       return "red";
   }
-  ////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
   return (
     <li className="cohortlistcontent-li">
       <div className="cohortcard">
@@ -98,7 +106,7 @@ export default function ({cohort}) {
           </div>
           <div>
             <ul className="onoononenote-ol">
-              {notes.map((el,idx)=>{return <li key={idx}>
+              {notes.map((el,idx)=>{return <li key={idx} title={el.datetime}>
                 <span>{el.name}</span> says <span>"{el.comment}"</span>
               </li>})}
             </ul>
