@@ -1,7 +1,11 @@
 import Student from "../student/Student";
 import "./StudentList.css";
 
-export default function StudentList({ students, selectedCohort }) {
+export default function StudentList({
+  students,
+  selectedCohort,
+  addNoteToStudent,
+}) {
   return (
     <div className="student-list-container">
       <h3>
@@ -16,7 +20,11 @@ export default function StudentList({ students, selectedCohort }) {
       <ul className="student-list">
         {students &&
           students.map((student) => (
-            <Student student={student} key={student.id} />
+            <Student
+              student={student}
+              key={student.id}
+              addNoteToStudent={addNoteToStudent}
+            />
           ))}
       </ul>
     </div>

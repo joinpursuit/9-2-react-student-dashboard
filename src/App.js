@@ -11,18 +11,25 @@ function App() {
   const [selectedCohort, setSelectedCohort] = useState("All Students");
 
   function filterStudentsByCohort(cohort) {
-    console.log(cohort);
     let newStudents;
     if (cohort === "All Students") {
-      newStudents = data;
+      newStudents = students;
     } else {
       newStudents = students.filter(
         (student) => student.cohort.cohortCode === cohort
       );
     }
-    console.log(newStudents);
     setSelectedCohort(cohort);
     setFilteredStudents(newStudents);
+  }
+
+  function addNoteToStudent(studentId, newNoteObj) {
+    const newStudentsArr = [...students];
+    const indexOfstudentToUpdate = students.findIndex(
+      (student) => student.id == studentId
+    );
+    newStudentsArr[indexOfstudentToUpdate].notes.push(newNoteObj);
+    setStudents(newStudentsArr);
   }
 
   function getUniqueCohortCodes(array = []) {
@@ -56,6 +63,7 @@ function App() {
         <StudentList
           students={filteredStudents}
           selectedCohort={selectedCohort}
+          addNoteToStudent={addNoteToStudent}
         />
       </main>
     </div>

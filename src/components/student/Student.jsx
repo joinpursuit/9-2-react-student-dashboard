@@ -2,9 +2,11 @@ import { useState } from "react";
 import StudentDetails from "../studentDetails/StudentDetails";
 import "./Student.css";
 
-export default function Student({ student }) {
+export default function Student({ student, addNoteToStudent }) {
   const [showDetails, setShowDetails] = useState(false);
-  const isOnTrack = Object.values(student.certifications).every((v) => v);
+  const isOnTrack =
+    Object.values(student.certifications).every((v) => v) &&
+    student.codewars.current.total > 600;
 
   function formatDob(dob) {
     const date = new Date(dob).toLocaleDateString("default", {
@@ -15,7 +17,7 @@ export default function Student({ student }) {
     return date;
   }
   return (
-    <li>
+    <li className="student">
       <div className="card">
         <div className="profile-pic">
           <img src={student.profilePhoto}></img>
@@ -50,7 +52,12 @@ export default function Student({ student }) {
               </a>
             </p>
 
-            {showDetails && <StudentDetails student={student} />}
+            {showDetails && (
+              <StudentDetails
+                student={student}
+                addNoteToStudent={addNoteToStudent}
+              />
+            )}
           </div>
         </div>
       </div>

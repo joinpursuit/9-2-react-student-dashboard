@@ -6,7 +6,7 @@
   list-style: none;
   padding: 0;
 }
-.student-list li {
+.student-list .student {
   margin-bottom: 15px;
   border: 1px solid #5c936e;
 }
