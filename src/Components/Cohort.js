@@ -1,4 +1,4 @@
-function GetAllCohorts({ data, setTtitle, setStudentData }) {
+function GetAllCohorts({ data, setTitle, setStudentData }) {
   const allCohorts = [
     ...new Map(
       data.map((student) => [student.cohort.cohortCode, student])
@@ -6,21 +6,16 @@ function GetAllCohorts({ data, setTtitle, setStudentData }) {
   ]
     .sort((a, b) => b.slice(-4) - a.slice(-4))
     .reverse();
-  console.log(allCohorts);
 
   function handleClick(e) {
-    console.log(e);
-    console.log(e.target.id);
-
     if (e.target.id !== "all-students") {
       data = data.filter(({ cohort }) => {
         return cohort.cohortCode === e.target.id;
       });
-      setTtitle(e.target.id.slice(0, -4) + " " + e.target.id.slice(-4));
+      setTitle(e.target.id.slice(0, -4) + " " + e.target.id.slice(-4));
       setStudentData(data);
-      console.log(data);
     } else {
-      setTtitle("All Students");
+      setTitle("All Students");
       setStudentData(data);
     }
   }
@@ -33,12 +28,16 @@ function GetAllCohorts({ data, setTtitle, setStudentData }) {
         <ul>
           <li className="cohort-list" onClick={handleClick} id="all-students">
             All Students
-                  </li>
-                  <br/>
-          <hr />
+          </li>
+          <br />
           {allCohorts.map((cohort) => {
             return (
-              <li className="cohort-list" key={cohort} onClick={handleClick} id={cohort}>
+              <li
+                className="cohort-list"
+                key={cohort}
+                onClick={handleClick}
+                id={cohort}
+              >
                 {cohort.slice(0, -4) + " " + cohort.slice(-4)}
                 <hr></hr>
               </li>

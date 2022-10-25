@@ -1,13 +1,11 @@
 import { useState } from "react";
 import data from "./data/data.json";
 import GetAllCohorts from "./Components/Cohort";
-import HandleCohortsChange from "./Components/Students";
+import CohortsChange from "./Components/Students";
 
 function App() {
-  const [title, setTtitle] = useState("All Students");
+  const [title, setTitle] = useState("All Students");
   const [studentData, setStudentData] = useState(data);
-
-  console.log(data);
 
   return (
     <div>
@@ -18,12 +16,12 @@ function App() {
         <div>
           <GetAllCohorts
             data={data}
-            setTtitle={setTtitle}
+            setTitle={setTitle}
             setStudentData={setStudentData}
           />
         </div>
         <div>
-          <HandleCohortsChange studentData={studentData} title={title}/>
+          <CohortsChange studentData={studentData} title={title} />
         </div>
       </div>
     </div>

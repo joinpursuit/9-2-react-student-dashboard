@@ -1,12 +1,22 @@
 import StudentCard from "./Student";
 
-function HandleCohortsChange({ studentData, title }) {
+function CohortsChange({ studentData, title }) {
   return (
     <div>
-      <h1>{title}</h1>
-      <h3>Total Students: {studentData.length}</h3>
+      <h1 className="title">{title}</h1>
+      <h3>Total Students: <span className="student-count">{studentData.length}</span></h3>
       {studentData.map(
-        ({ id, names, username, profilePhoto, dob, certifications, codewars, cohort, notes }) => {
+        ({
+          id,
+          names,
+          username,
+          profilePhoto,
+          dob,
+          certifications,
+          codewars,
+          cohort,
+          notes,
+        }) => {
           return (
             <div key={id}>
               <StudentCard
@@ -15,10 +25,10 @@ function HandleCohortsChange({ studentData, title }) {
                 username={username}
                 profilePhoto={profilePhoto}
                 dob={dob}
-                      certifications={certifications}
-                      codewars={codewars}
-                      cohort={cohort}
-                      notes={notes}
+                certifications={certifications}
+                codewars={codewars}
+                cohort={cohort}
+                notes={notes}
               />
             </div>
           );
@@ -28,4 +38,4 @@ function HandleCohortsChange({ studentData, title }) {
   );
 }
 
-export default HandleCohortsChange;
+export default CohortsChange;

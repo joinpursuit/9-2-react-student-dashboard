@@ -1,15 +1,39 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 header {
     background-color: rgb(57, 135, 199);
     text-align: center;
-    height: 100px;
-    padding: 50px 0;
     color: white;
     font-size: x-large;
+    text-shadow: 6px 6px rgb(11, 11, 26);
+    border: 9px solid  rgb(32, 128, 231);
+}
+
+h1.cohorts {
+    color: rgb(57, 135, 199);
+    text-decoration: underline black dotted;
+}
+
+h1.title, h3 {
+    text-align: right;
+    padding-right: 50px;
+}
+
+.student-count {
+    color: rgb(57, 135, 199);
+    text-align: center;
+}
+
+.student-name {
+    background-color: rgb(207, 207, 208);
+    text-align: center;
 }
 
 .container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1.5fr 2.5fr;
 }
 
 .cohorts {
@@ -25,6 +49,7 @@ header {
 img {
     height: 150px;
     width: 150px;
+    border: 5px solid rgb(0, 0, 0);
 }
 
 .show-hide, .birthday {
@@ -47,12 +72,26 @@ img {
 }
 
 .cohort-list {
-    font-size: xxx-large;
+    font-size: xx-large;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .cohort-list:hover {
-    color: red;
+    color: rgb(168, 210, 62);
+}
+
+#all-students, .title {
+    background-color: black;
+    color: white;
+}
+
+.cohort-list:nth-child(even){
+    background-color: rgb(225, 217, 200);
+}
+
+.cohort-list:nth-child(odd){
+    background-color: rgb(32, 128, 231);
 }
 
 .on-track {
@@ -78,6 +117,7 @@ img {
 
 .yellow {
     color: yellow;
+    background-color: black;
 }
 
 .red {
@@ -98,4 +138,8 @@ img {
 form {
     border: 1px solid black;
     padding: 10px;
+}
+
+h4 {
+    text-decoration: underline;
 }
