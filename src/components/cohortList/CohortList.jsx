@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import "./CohortList.css";
 
 export default function CohortList({ cohortCodes, filterStudentsByCohort }) {

@@ -3,7 +3,7 @@
   grid-template-columns: 2fr 1fr;
 }
 
-.card a {
+.card .show-more {
   color: blue;
   text-decoration: underline;
   cursor: pointer;

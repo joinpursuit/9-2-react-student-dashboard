@@ -20,7 +20,7 @@ export default function Student({ student, addNoteToStudent }) {
     <li className="student">
       <div className="card">
         <div className="profile-pic">
-          <img src={student.profilePhoto}></img>
+          <img src={student.profilePhoto} alt="profile pic"></img>
         </div>
         <div className="info">
           <div className="divider">
@@ -43,10 +43,12 @@ export default function Student({ student, addNoteToStudent }) {
                 {isOnTrack ? "On track to graduation" : ""}
               </p>
             </div>
-            <p>
-              <a onClick={() => setShowDetails(!showDetails)}>
-                {showDetails ? "Show Less" : "Show More..."}
-              </a>
+
+            <p
+              className="show-more"
+              onClick={() => setShowDetails(!showDetails)}
+            >
+              {showDetails ? "Show Less" : "Show More..."}
             </p>
           </div>
         </div>

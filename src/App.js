@@ -26,7 +26,7 @@ function App() {
   function addNoteToStudent(studentId, newNoteObj) {
     const newStudentsArr = [...students];
     const indexOfstudentToUpdate = students.findIndex(
-      (student) => student.id == studentId
+      (student) => student.id === studentId
     );
     newStudentsArr[indexOfstudentToUpdate].notes.push(newNoteObj);
     setStudents(newStudentsArr);
@@ -49,8 +49,8 @@ function App() {
   }
 
   useEffect(() => {
-    getUniqueCohortCodes(students);
-  }, []);
+    getUniqueCohortCodes(data);
+  }, [data]);
 
   return (
     <div className="App">
