@@ -46,7 +46,6 @@ function App() {
         }
         setCohortCodes(codesObj);
       }
-      console.log(cohortCodes);
     }
 
     getUniqueCohortCodes(data);
