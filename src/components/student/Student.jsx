@@ -1,8 +1,10 @@
 import { useState } from "react";
 import StudentDetails from "../studentDetails/StudentDetails";
 import "./Student.css";
+
 export default function Student({ student }) {
   const [showDetails, setShowDetails] = useState(false);
+  const isOnTrack = Object.values(student.certifications).every((v) => v);
 
   function formatDob(dob) {
     const date = new Date(dob).toLocaleDateString("default", {
@@ -35,7 +37,9 @@ export default function Student({ student }) {
               <br />
             </div>
             <div>
-              <a href="">On track to graduation</a>
+              <p className="green">
+                {isOnTrack ? "On track to graduation" : ""}
+              </p>
             </div>
           </div>
 
