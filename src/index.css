@@ -140,6 +140,6 @@ form {
     padding: 10px;
 }
 
-h4 {
+section > h4 {
     text-decoration: underline;
 }
