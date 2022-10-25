@@ -49,7 +49,7 @@ function App() {
     }
 
     getUniqueCohortCodes(data);
-  }, [data]);
+  }, []);
 
   return (
     <div className="App">
