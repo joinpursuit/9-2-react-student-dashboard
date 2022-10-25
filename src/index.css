@@ -11,7 +11,7 @@ header {
     border: 9px solid  rgb(32, 128, 231);
 }
 
-h1.cohorts {
+h2.cohorts {
     color: rgb(57, 135, 199);
     text-decoration: underline black dotted;
 }
@@ -24,6 +24,8 @@ h1.title, h3 {
 .student-count {
     color: rgb(57, 135, 199);
     text-align: center;
+    font-style: italic;
+    text-decoration: dotted underline black;
 }
 
 .student-name {
@@ -75,6 +77,7 @@ img {
     font-size: xx-large;
     font-weight: bold;
     cursor: pointer;
+    padding-left: 20px
 }
 
 .cohort-list:hover {
@@ -97,14 +100,7 @@ img {
 .on-track {
     display: grid;
     align-items: center;
-}
-
-.check {
     color: green;
-}
-
-.uncheck {
-    color: red;
 }
 
 .student-container {
@@ -117,7 +113,7 @@ img {
 
 .yellow {
     color: yellow;
-    background-color: black;
+    background-color: rgb(136, 136, 136);
 }
 
 .red {
@@ -142,4 +138,30 @@ form {
 
 section > h4 {
     text-decoration: underline;
+}
+
+.blue-button {
+    border-radius: 10px;
+    color: rgb(70, 156, 43);
+    background-color: white;
+    margin-left: 40px;
+}
+
+.red-button {
+    border-radius: 10px;
+    color: rgb(255, 0, 0);
+    background-color: white;
+    margin-left: 40px;
+}
+
+.codewars {
+    color: rgb(21, 127, 83);
+}
+
+.scores {
+    color: rgb(218, 168, 61);
+}
+
+.certifications {
+    color: rgb(92, 20, 95);
 }

@@ -27,7 +27,7 @@ function AddNotes({ noteLi, setNoteLi }) {
           type="text"
           value={addComment.commenter}
           onChange={handleComments}
-          placeholder="Your Name Here..."
+          placeholder="Name Here..."
         />
         <br />
         <br />
@@ -37,7 +37,7 @@ function AddNotes({ noteLi, setNoteLi }) {
           type="text"
           value={addComment.comment}
           onChange={handleComments}
-          placeholder="Your Comment Here..."
+          placeholder="Comment Here..."
         />
         <br />
         <br />

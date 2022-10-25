@@ -14,7 +14,7 @@ function StudentDetails({
     <div className="student-container">
       <div className="top-details">
         <section>
-          <h4>Codewars:</h4>
+          <h4 className="codewars">Codewars:</h4>
           <p>Current Total: {codewars.current.total}</p>
           <p>Last Week: {codewars.current.lastWeek}</p>
           <p>Goal: {codewars.goal.total}</p>
@@ -46,13 +46,13 @@ function StudentDetails({
           </p>
         </section>
         <section>
-          <h4>Scores:</h4>
+          <h4 className="scores">Scores:</h4>
           <p>Assigments: {cohort.scores.assignments * 100}%</p>
           <p>Projects: {cohort.scores.projects * 100}%</p>
           <p>Assessments: {cohort.scores.assessments * 100}%</p>
         </section>
         <section>
-          <h4>Certifications:</h4>
+          <h4 className="certifications">Certifications:</h4>
           <p>Resume: {certifications.resume ? "✅" : "❌"}</p>
           <p>Linkedin: {certifications.linkedin ? "✅" : "❌"}</p>
           <p>Mock Interview: {certifications.mockInterview ? "✅" : "❌"}</p>

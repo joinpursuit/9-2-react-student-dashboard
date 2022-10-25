@@ -20,9 +20,9 @@ function StudentCard({
     certifications.github === true &&
     certifications.linkedin === true &&
     certifications.mockInterview === true &&
-    certifications.resume === true
-      ? "True"
-      : "False";
+    certifications.resume === true && codewars.current.total > 600
+      ? <p>On Track to Graduate</p>
+      : "";
 
   function toggleStudentDetails() {
     setShowDetails(!showDetails);
@@ -60,9 +60,7 @@ function StudentCard({
         }
       </div>
       <div className="on-track">
-        <span>
-          On Track to Graduate:{" "}
-          <p className={onTrack === "True" ? "check" : "uncheck"}>{onTrack}</p>
+        <span>{onTrack}
         </span>
       </div>
     </div>
