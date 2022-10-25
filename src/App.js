@@ -32,23 +32,23 @@ function App() {
     setStudents(newStudentsArr);
   }
 
-  function getUniqueCohortCodes(array = []) {
-    const codesObj = {};
-    if (array.length) {
-      for (let student of array) {
-        const code = student.cohort.cohortCode;
-        if (code in codesObj) {
-          codesObj[code]++;
-        } else {
-          codesObj[code] = 1;
-        }
-      }
-      setCohortCodes(codesObj);
-    }
-    console.log(cohortCodes);
-  }
-
   useEffect(() => {
+    function getUniqueCohortCodes(array = []) {
+      const codesObj = {};
+      if (array.length) {
+        for (let student of array) {
+          const code = student.cohort.cohortCode;
+          if (code in codesObj) {
+            codesObj[code]++;
+          } else {
+            codesObj[code] = 1;
+          }
+        }
+        setCohortCodes(codesObj);
+      }
+      console.log(cohortCodes);
+    }
+
     getUniqueCohortCodes(data);
   }, [data]);
 
