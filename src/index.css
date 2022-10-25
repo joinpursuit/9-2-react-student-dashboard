@@ -15,7 +15,7 @@ html {
 
 main {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 4fr;
   padding: 40px 50px;
   gap: 30px;
 }

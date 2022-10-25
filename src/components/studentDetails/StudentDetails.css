@@ -1,0 +1,22 @@
+.student-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.5fr;
+}
+
+.student-details p:nth-child(1) {
+  font-weight: bold;
+}
+
+.student-details p:not(:nth-child(1)) {
+  font-size: 0.9rem;
+}
+
+.red {
+  color: red;
+}
+.green {
+  color: green;
+}
+.yellow {
+  color: #d8c307;
+}

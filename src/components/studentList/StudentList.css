@@ -1,5 +1,5 @@
 .student-list-container {
-  padding: 0 40px;
+  padding: 0 30px;
 }
 
 .student-list {
@@ -12,7 +12,7 @@
 }
 .card {
   display: grid;
-  grid-template-columns: 30% 50% 20%;
+  grid-template-columns: 20% 80%;
   padding: 20px;
 }
 
@@ -24,7 +24,8 @@
   width: 100%;
 }
 .card .info {
-  padding: 20px;
+  padding: 0 20px;
+  padding-right: 0;
 }
 
 .card .on-track {
@@ -34,4 +35,8 @@
 .total-students {
   color: #5c936e;
   font-weight: bold;
+}
+
+.personal-info p {
+  margin-top: 0;
 }

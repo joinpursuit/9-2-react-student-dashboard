@@ -1,4 +1,9 @@
+import { useState } from "react";
+import StudentDetails from "../studentDetails/StudentDetails";
+import "./Student.css";
 export default function Student({ student }) {
+  const [showDetails, setShowDetails] = useState(false);
+
   function formatDob(dob) {
     const date = new Date(dob).toLocaleDateString("default", {
       month: "long",
@@ -14,24 +19,35 @@ export default function Student({ student }) {
           <img src={student.profilePhoto}></img>
         </div>
         <div className="info">
-          <p>
-            <strong>
-              {student.names.preferredName + " "}
-              {student.names.middleName + " "}
-              {student.names.surname}
-            </strong>
-          </p>
-          <p>{student.username}</p>
-          <p>
-            <span id="bd">Birthday: </span> {formatDob(student.dob)}
-          </p>
-          <br />
-          <p>
-            <a href="">Show More...</a>
-          </p>
-        </div>
-        <div className="on-track">
-          <a href="">On Track to Graduate</a>
+          <div className="divider">
+            <div className="personal-info">
+              <p>
+                <strong>
+                  {student.names.preferredName + " "}
+                  {student.names.middleName + " "}
+                  {student.names.surname}
+                </strong>
+              </p>
+              <p>{student.username}</p>
+              <p>
+                <span id="bd">Birthday: </span> {formatDob(student.dob)}
+              </p>
+              <br />
+            </div>
+            <div>
+              <a href="">On track to graduation</a>
+            </div>
+          </div>
+
+          <div className="details">
+            <p>
+              <a onClick={() => setShowDetails(!showDetails)}>
+                {showDetails ? "Show Less" : "Show More..."}
+              </a>
+            </p>
+
+            {showDetails && <StudentDetails student={student} />}
+          </div>
         </div>
       </div>
     </li>
