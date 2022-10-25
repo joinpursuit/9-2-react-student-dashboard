@@ -14,5 +14,12 @@
 }
 
 .one-on-one form {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+}
+.one-on-one button {
+  margin-top: 10px;
+}
+
+.one-on-one {
+  padding: 10px;
 }

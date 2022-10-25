@@ -43,23 +43,22 @@ export default function Student({ student, addNoteToStudent }) {
                 {isOnTrack ? "On track to graduation" : ""}
               </p>
             </div>
-          </div>
-
-          <div className="details">
             <p>
               <a onClick={() => setShowDetails(!showDetails)}>
                 {showDetails ? "Show Less" : "Show More..."}
               </a>
             </p>
-
-            {showDetails && (
-              <StudentDetails
-                student={student}
-                addNoteToStudent={addNoteToStudent}
-              />
-            )}
           </div>
         </div>
+
+        {showDetails && (
+          <div className="details">
+            <StudentDetails
+              student={student}
+              addNoteToStudent={addNoteToStudent}
+            />
+          </div>
+        )}
       </div>
     </li>
   );
