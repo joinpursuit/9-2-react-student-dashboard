@@ -2,3 +2,7 @@
   justify-self: end;
   align-self: center;
 }
+
+.current-page {
+  background: yellowgreen;
+}
