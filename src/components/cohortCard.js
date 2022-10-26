@@ -12,6 +12,7 @@ export default function ({cohort}) {
   const [showMore,updateShowMore] = useState(false);
   let [note,updateNote] = useState({name:"",comment:""});//note form to stroage
   const [notes,updateNotes] = useState(previus['notes']||[]);//note list to display
+  const [error,updateError] = useState("");
   let showOnTracktoGraduate = (Object.values(cohort.certifications).some(el=>el)||cohort.codewars.current.total>600);
   let codewarsPercent = Math.round(cohort.codewars.current.total/cohort.codewars.goal.total*100);
   /////event/////////////////////////////////////////////
@@ -23,22 +24,32 @@ export default function ({cohort}) {
       evt.target.parentNode.parentNode.parentNode.parentNode.classList.remove("cohortlistcontent-li-active");
     }
     updateShowMore(pv=>!pv);
-    
   }
   const on_note_submit = (evt)=>{
     evt.preventDefault();
-    for(let x in note){
-      if(!note[x]) {
-        alert(`Please fill out the ${x}!`);
-        evt.target[x].focus();
-        return;
-      }
+
+    ///user input error handling 
+    let errors = [];
+    for(let x in note) if(!note[x]) {
+      errors.push(x);
+      evt.target[x].classList.add("error-input");
+    }else{
+      evt.target[x].classList.remove("error-input");
     }
+    if (errors.length>0) {
+      evt.target[errors.shift()].focus();
+      updateError(`Please fill out the ${errors.join(", ")} before submit.`);
+      return;
+    }
+    ///////////////////////////////////////////////
+
     note['datetime']=Date("now");
     previus['notes'] = previus['notes'] ? previus['notes'].concat(note):[note];
     localStorage.setItem(local_stroage_key, JSON.stringify(previus));
     updateNotes([...previus['notes']]);
     updateNote({name:"",comment:""});
+    updateError("");
+
   }
   const on_note_change = (evt) =>{
     updateNote(pv=>({...pv,[evt.target.name]:evt.target.value}));
@@ -61,7 +72,7 @@ export default function ({cohort}) {
           <p><b>{short_hand_name(cohort.names)}</b></p>
           <p>{cohort.username}</p>
           <div><span>Brithday:</span><span>{cohort.dob}</span></div>
-          <div><a href="#" onClick={on_show_more_click}>{showMore?"Show Less":"Show More"}...</a></div>
+          <div><a className="showmore-button" state={showMore.toString()} href="#" onClick={on_show_more_click}>{showMore?"Show Less":"Show More"}...</a></div>
         </div>
         <div><p>{showOnTracktoGraduate?"On Track to Graduate":""}</p></div>
       </div>
@@ -102,6 +113,7 @@ export default function ({cohort}) {
                 <label><span>Commnent:</span> <p><textarea name="comment" width="20" value={note.comment} onChange={on_note_change}></textarea></p></label>
               </div>
               <button className="notebutton">Add Note...</button>
+              <span className="errormessage">{error}</span>
             </form>
           </div>
           <div>

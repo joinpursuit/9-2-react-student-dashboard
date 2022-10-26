@@ -114,3 +114,15 @@
 .onoononenote-ol{
   margin: 10px;
 }
+.error-input{
+  border: 1px red solid;
+}
+.errormessage{
+  color: red;
+  margin-left: 20px;
+}
+.cohortlist-count{
+  padding: 0px 5px;
+  border-radius: 5px;
+  background-color: lightgray;
+}
