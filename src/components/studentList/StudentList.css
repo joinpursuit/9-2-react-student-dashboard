@@ -41,3 +41,8 @@
 .personal-info p {
   margin-top: 0;
 }
+
+.student-list-container .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

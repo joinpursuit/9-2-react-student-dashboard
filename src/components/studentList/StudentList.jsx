@@ -1,25 +1,36 @@
+import { useState } from "react";
 import Student from "../student/Student";
 import "./StudentList.css";
-
+import Pagination from "../pagination/Pagination";
 export default function StudentList({
-  students,
+  filteredStudents,
   selectedCohort,
   addNoteToStudent,
 }) {
+  const [studentsTodisplay, setStudentsToDisplay] = useState([]);
+
   return (
     <div className="student-list-container">
-      <h3>
-        {selectedCohort === "All Students"
-          ? "All Students"
-          : selectedCohort.slice(0, -4) + " " + selectedCohort.slice(-4)}
-      </h3>
+      <div className="grid">
+        <h3>
+          {selectedCohort === "All Students"
+            ? "All Students"
+            : selectedCohort.slice(0, -4) + " " + selectedCohort.slice(-4)}
+        </h3>
+        <Pagination
+          filteredStudents={filteredStudents}
+          setStudentsToDisplay={setStudentsToDisplay}
+          selectedCohort={selectedCohort}
+        />
+      </div>
+
       <p>
         Total Students:
-        <span className="total-students"> {students.length}</span>
+        <span className="total-students"> {filteredStudents.length}</span>
       </p>
       <ul className="student-list">
-        {students &&
-          students.map((student) => (
+        {studentsTodisplay &&
+          studentsTodisplay.map((student) => (
             <Student
               student={student}
               key={student.id}
