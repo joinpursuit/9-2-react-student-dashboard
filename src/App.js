@@ -60,7 +60,7 @@ function App() {
           filterStudentsByCohort={filterStudentsByCohort}
         />
         <StudentList
-          students={filteredStudents}
+          filteredStudents={filteredStudents}
           selectedCohort={selectedCohort}
           addNoteToStudent={addNoteToStudent}
         />
