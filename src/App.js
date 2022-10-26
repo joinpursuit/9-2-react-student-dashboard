@@ -1,27 +1,14 @@
 import { useState } from "react";
 import studentInfo from "./data/data.json"
-import DisplayAllStudents from "./Components/Total";
+import DisplayAllStudents from "./Components/DisplayAllStudents";
 import Cohort from "./Components/Cohort";
 
 function App() {
   
-
-const [studentCount, setstudentCount] = useState([])
-
-// let totalStudents = studentInfo.reduce((acc, students) => acc + students, 0);
-
-// function allStudents(setstudentCount) {
-//     studentCount(totalStudents)
-// }
-// console.log(allStudents())
-// console.log(studentCount, allStudents)
-
-// function fuckOff(){
-//   if (studentInfo === studentInfo) {
-//     studentCount.push(studentInfo.length)
-//    setstudentCount(studentCount) 
-//   }
-// }
+  const [moreDetails, setMoreDetails] = useState(false);
+const [studentCount, setstudentCount] = useState([]);
+const [cohortDisplay, setCohortDisplay] = useState('All Students')
+const [changeCohortDisplay, setChangeCohortDisplay] = useState(studentInfo)
 
   return (
     <div>
@@ -29,11 +16,12 @@ const [studentCount, setstudentCount] = useState([])
       <div className="container">
 
 <div className="startDate">
-<Cohort />
+<Cohort setCohortDisplay={setCohortDisplay} studentInfo={studentInfo} setChangeCohortDisplay={setChangeCohortDisplay}/>
 </div>
 <div className="allStudents">
-      <h1>All Students</h1>
-      <DisplayAllStudents studentCount= {studentCount}  setstudentCount={setstudentCount} studentInfo={studentInfo} />
+      <h1>{cohortDisplay}</h1>
+      <h2>Total Count: {changeCohortDisplay.length}</h2>
+      <DisplayAllStudents studentCount= {studentCount}  setstudentCount={setstudentCount} changeCohortDisplay={changeCohortDisplay} setMoreDetails={setMoreDetails} moreDetails={moreDetails} />
       </div>
 </div>
     </div>
