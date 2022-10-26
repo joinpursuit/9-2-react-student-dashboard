@@ -50,7 +50,11 @@ export default function Pagination({
       >
         Prev
       </button>
-      <button>{currentPage}</button>
+      {Array.from({ length: numOfPages }, (_, i) => i + 1).map((n, i) => (
+        <button onClick={() => setCurrentPage(n)} key={i}>
+          {n}
+        </button>
+      ))}
       <button
         id="next"
         className="next"
