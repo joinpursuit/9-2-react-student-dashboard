@@ -13,7 +13,7 @@ export default function ({cohort}) {
   let [note,updateNote] = useState({name:"",comment:""});//note form to stroage
   const [notes,updateNotes] = useState(previus['notes']||[]);//note list to display
   const [error,updateError] = useState("");
-  let showOnTracktoGraduate = (Object.values(cohort.certifications).some(el=>el)||cohort.codewars.current.total>600);
+  let showOnTracktoGraduate = (Object.values(cohort.certifications).every(el=>el)&&cohort.codewars.current.total>600);
   let codewarsPercent = Math.round(cohort.codewars.current.total/cohort.codewars.goal.total*100);
   /////event/////////////////////////////////////////////
   const on_show_more_click = (evt)=>{

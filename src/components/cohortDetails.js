@@ -18,11 +18,11 @@ export default function ({cohortList,displayTitle}){
     }
     updateShowAllMore(pv=>!pv);
   }
+
   return (
     <div>
       <div><b>{displayTitle}</b></div>
       <div style={{display:"flex"}}>
-    
         <span>Total Result:</span> 
         <span className="cohortlist-count">{cohortList.length}</span>
         <span style={{marginLeft: "auto"}}><a href="#" onClick={on_show_more_all_click}>
