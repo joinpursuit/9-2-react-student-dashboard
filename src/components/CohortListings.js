@@ -18,26 +18,26 @@ export default function Seasons({ cohort, setCohort }) {
             <button onClick={(e) => setCohort(cohort = e.target.value)} value="Spring2025">
               Spring 2025
             </button>
-            <button onClick={(e) => setCohort(cohort = e.target.value)} value="Spring2025"> 
+            <button onClick={(e) => setCohort(cohort = e.target.value)} value="Spring2026"> 
             Spring 2026
             </button>
-            <button onClick={(e) => setCohort(cohort = e.target.value)} value="Spring2026">
-               Summer2025
+            <button onClick={(e) => setCohort(cohort = e.target.value)} value="Summer2025">
+               Summer 2025
                </button>
-            <button onClick={(e) => setCohort(cohort = e.target.value)} value="Summer2025"> 
+            <button onClick={(e) => setCohort(cohort = e.target.value)} value="Summer2026"> 
             Summer 2026
             </button>
-            <button onClick={(e) => setCohort(cohort = e.target.value)} value="Spring2026"> 
+            <button onClick={(e) => setCohort(cohort = e.target.value)} value="Fall2025"> 
             Fall 2025
             </button>
             <button onClick={(e) => setCohort(cohort = e.target.value)} value="Fall2026">
                Fall 2026
                </button>
                <button onClick={(e) => setCohort(cohort = e.target.value)} value="Winter2025">
-               Winter2025 
+               Winter 2025 
                </button>
                <button onClick={(e) => setCohort(cohort = e.target.value)} value="Winter2026">
-               Winter2026
+               Winter 2026
                </button>
           </li>
         </ul>

@@ -54,7 +54,7 @@ export default function Students({ cohort, setCohort }) {
       </section>
       ) : (
         <section>
-          <h3>All Students</h3>
+        { cohort ? <h3>cohort</h3> : <h3>All Students</h3>}
 
           <h5>
             Total Students: <span className="highlights">{totalStudents}</span>
