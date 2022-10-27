@@ -11,18 +11,22 @@ function StudentCard({
   cohort,
   notes,
 }) {
+  //this component handles data shown about each student prior to pressing the show more button
   const [showDetails, setShowDetails] = useState(false);
 
   let newMonth = new Date(dob).toLocaleString("en-US", { month: "long" });
   let arrDob = dob.split("/");
   let newDob = `${newMonth} ${arrDob[1]}, ${arrDob[2]}`;
   let onTrack =
-    certifications.github === true &&
-    certifications.linkedin === true &&
-    certifications.mockInterview === true &&
-    certifications.resume === true && codewars.current.total > 600
-      ? <p>On Track to Graduate</p>
-      : "";
+    certifications.github &&
+    certifications.linkedin &&
+    certifications.mockInterview &&
+    certifications.resume &&
+    codewars.current.total > 600 ? (
+      <p>On Track to Graduate</p>
+    ) : (
+      ""
+    );
 
   function toggleStudentDetails() {
     setShowDetails(!showDetails);
@@ -60,8 +64,7 @@ function StudentCard({
         }
       </div>
       <div className="on-track">
-        <span>{onTrack}
-        </span>
+        <span>{onTrack}</span>
       </div>
     </div>
   );

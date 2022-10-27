@@ -1,20 +1,22 @@
 import { useState } from "react";
 
 function GetAllCohorts({ data, setTitle, setStudentData }) {
-  const [sortCohorts, setSortCohorts] = useState(false)
-  
-  let allCohorts = !sortCohorts ? [
-    ...new Map(
-      data.map((student) => [student.cohort.cohortCode, student])
-    ).keys(),
-  ]
-    .sort((a, b) => b.slice(-4) - a.slice(-4))
-    .reverse() : [
-      ...new Map(
-        data.map((student) => [student.cohort.cohortCode, student])
-      ).keys(),
-    ]
-      .sort((a, b) => b.slice(-4) - a.slice(-4));
+  //this component is responsible for setting the student data and title by filtering data that is shown depending on which li is clicked. this also handles the order shown of the cohorts
+  const [sortCohorts, setSortCohorts] = useState(false);
+
+  let allCohorts = !sortCohorts
+    ? [
+        ...new Map(
+          data.map((student) => [student.cohort.cohortCode, student])
+        ).keys(),
+      ]
+        .sort((a, b) => b.slice(-4) - a.slice(-4))
+        .reverse()
+    : [
+        ...new Map(
+          data.map((student) => [student.cohort.cohortCode, student])
+        ).keys(),
+      ].sort((a, b) => b.slice(-4) - a.slice(-4));
 
   function handleClick(e) {
     if (e.target.id !== "all-students") {
@@ -30,19 +32,23 @@ function GetAllCohorts({ data, setTitle, setStudentData }) {
   }
 
   function toggleCohortOrder() {
-    setSortCohorts(!sortCohorts)
+    setSortCohorts(!sortCohorts);
   }
 
   return (
     <div>
       <h2 className="cohorts">⬇️ Choose a Class by Start Date ⬇️</h2>
-      <button className={!sortCohorts ? "blue-button" : "red-button"} onClick={toggleCohortOrder}>{!sortCohorts ? "Descending Order" : "Ascending Order"}</button>
+      <button
+        className={!sortCohorts ? "green-button" : "red-button"}
+        onClick={toggleCohortOrder}
+      >
+        {!sortCohorts ? "Descending Order" : "Ascending Order"}
+      </button>
       <div className="start-date">
         <ul>
           <li className="cohort-list" onClick={handleClick} id="all-students">
-            All Students 
+            All Students
           </li>
- 
           <br />
           {allCohorts.map((cohort) => {
             return (

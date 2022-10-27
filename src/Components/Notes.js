@@ -2,6 +2,7 @@ import { useState } from "react";
 import { v1 as generateUniqueID } from "uuid";
 
 function AddNotes({ noteLi, setNoteLi }) {
+  //this handles the one on one section which includes the form and the ability to add a comment which shows as an li
   const [addComment, setAddComment] = useState({
     commenter: "",
     comment: "",
@@ -21,7 +22,7 @@ function AddNotes({ noteLi, setNoteLi }) {
     <section>
       <h4>1-on-1 Notes</h4>
       <form onSubmit={handleFormSubmit}>
-        <label htmlFor="commenter">Commenter Name </label>
+        <label htmlFor="commenter">Commenter Name: </label>
         <input
           id="commenter"
           type="text"
@@ -31,7 +32,7 @@ function AddNotes({ noteLi, setNoteLi }) {
         />
         <br />
         <br />
-        <label htmlFor="commenter">Comment </label>
+        <label htmlFor="commenter">Comment: </label>
         <input
           id="comment"
           type="text"

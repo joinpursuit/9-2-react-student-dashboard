@@ -8,55 +8,52 @@ function StudentDetails({
   notes,
   showDetails,
 }) {
+  //this component handles the student details for each student including the notes, therefore the state for the notes is set here. the default state for the notes comes from the notes data
   const [noteLi, setNoteLi] = useState(notes);
 
+  let codewarsPercentage = (
+    (codewars.current.total / codewars.goal.total) *
+    100
+  ).toFixed(0);
+
+  //when the showDetails state is true, information about the student is shown, otherwise no information is shown
   return showDetails ? (
     <div className="student-container">
       <div className="top-details">
         <section>
-          <h4 className="codewars">Codewars:</h4>
-          <p>Current Total: {codewars.current.total}</p>
-          <p>Last Week: {codewars.current.lastWeek}</p>
-          <p>Goal: {codewars.goal.total}</p>
+          <h4 className="codewars">💻&nbsp;Codewars:&nbsp;💻</h4>
+          <p>Current Total:&nbsp;{codewars.current.total}</p>
+          <p>Last Week:&nbsp;{codewars.current.lastWeek}</p>
+          <p>Goal:&nbsp;{codewars.goal.total}</p>
           <p>
-            Percent of Goal Achieved:{" "}
+            Percent of Goal Achieved:&nbsp;
             <span
               className={
-                ((codewars.current.total / codewars.goal.total) * 100).toFixed(
-                  0
-                ) >= 100
+                codewarsPercentage >= 100
                   ? "green"
-                  : (
-                      (codewars.current.total / codewars.goal.total) *
-                      100
-                    ).toFixed(0) > 50 &&
-                    (
-                      (codewars.current.total / codewars.goal.total) *
-                      100
-                    ).toFixed(0) < 100
+                  : codewarsPercentage > 50
                   ? "yellow"
                   : "red"
               }
             >
-              {((codewars.current.total / codewars.goal.total) * 100).toFixed(
-                0
-              )}
-              %
+              {codewarsPercentage}%
             </span>
           </p>
         </section>
         <section>
-          <h4 className="scores">Scores:</h4>
-          <p>Assigments: {cohort.scores.assignments * 100}%</p>
-          <p>Projects: {cohort.scores.projects * 100}%</p>
-          <p>Assessments: {cohort.scores.assessments * 100}%</p>
+          <h4 className="scores">📓&nbsp;Scores:&nbsp;📓</h4>
+          <p>Assigments:&nbsp;{cohort.scores.assignments * 100}%</p>
+          <p>Projects:&nbsp;{cohort.scores.projects * 100}%</p>
+          <p>Assessments:&nbsp;{cohort.scores.assessments * 100}%</p>
         </section>
         <section>
-          <h4 className="certifications">Certifications:</h4>
-          <p>Resume: {certifications.resume ? "✅" : "❌"}</p>
-          <p>Linkedin: {certifications.linkedin ? "✅" : "❌"}</p>
-          <p>Mock Interview: {certifications.mockInterview ? "✅" : "❌"}</p>
-          <p>GitHub: {certifications.github ? "✅" : "❌"}</p>
+          <h4 className="certifications">🏆&nbsp;Certifications:&nbsp;🏆</h4>
+          <p>Resume:&nbsp;{certifications.resume ? "✅" : "❌"}</p>
+          <p>Linkedin:&nbsp;{certifications.linkedin ? "✅" : "❌"}</p>
+          <p>
+            Mock Interview:&nbsp;{certifications.mockInterview ? "✅" : "❌"}
+          </p>
+          <p>GitHub:&nbsp;{certifications.github ? "✅" : "❌"}</p>
         </section>
       </div>
       <AddNotes notes={notes} noteLi={noteLi} setNoteLi={setNoteLi} />
