@@ -1,18 +1,40 @@
-.profile {
-  display: flex;
-  flex-direction: column;
-  /* width: fit-content; */
-  align-items: center;
+.App {
+  background-image: url("https://media.gettyimages.com/id/92867451/video/streak-blur-abstract-blue.jpg?s=640x640&k=20&c=2d57nDO8LcDMH7avbaSu3alUyKMPe90BUJF5-j3Ht4M=");
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.cohort-main {
+  grid-column: 1 / 2;
+  color: rgba(144, 108, 9, 0.874);
+}
+
+.profileList {
+  color:rgb(167, 207, 6)
+}
+.card {
+  max-width: fit-content;
+ 
   border: solid 5px rgb(57, 198, 130);
   margin-bottom: 10px;
+  color: rgb(17, 76, 78);
+  background-color: aqua;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .face {
-  width: 200px;
-  height: 200px;
+  width:300px;
+  height:fit-content;
 }
 
 header {
   display: flex;
   justify-content: center;
+  background: url("https://st3.depositphotos.com/7110532/12886/v/600/depositphotos_128862864-stock-illustration-generic-background-with-multiple-colorful.jpg");
+  background-size: contain;
+  color: rgba(8, 33, 108, 0.708);
 }

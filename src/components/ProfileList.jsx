@@ -1,24 +1,42 @@
 import React from "react";
-// import data from "src/data/data"
+import ShowMoreButton from "./ShowMoreButton";
 
-function ProfileList({ data }) {
+
+
+function ProfileList({ props }) {
+  const onTrack = <span>On Track to Graduate</span>;
+  
   return (
-    <ul className="ProfileList">
-      {data.map((e) => {
+    <div className="List">
+      {props.map((e) => {
         return (
-          <li className="profile card" key={e.id}>
-            <h1>
-              {e.names.preferredName} {e.names.middleName[0]+'.'} {e.names.surname}
-            </h1>
-            <h5>
+
+          <div className="card" key={e.id}>
+            <img
+              src={e.profilePhoto}
+              className="face"
+              alt="profile-picture"
+            />
+            <h2 id="element">
+              {e.names.preferredName} {e.names.middleName[0] + "."}{" "}
+              {e.names.surname}
+            </h2>
+            
+            <h5 id="element">Cohort: {e.cohort.cohortCode}</h5>
+            <h5 id="element">
               Email: <a href={e.username}>{e.username}</a>
             </h5>
-
-            <img src={e.profilePhoto} className="face" />
-          </li>
+            <h5 id="element">Birthday: {e.dob}</h5>
+              {
+                e.certifications.resume && e.certifications.linkedin && e.certifications.github && e.certifications.mockInterview && e.codewars.current.total > 600 ? 
+                  onTrack : false
+                  }
+                  <h5>{onTrack}</h5>
+            <ShowMoreButton props={e.id} />
+          </div>
         );
-      })}
-    </ul>
+      }).slice(0, 5)}
+    </div>
   );
 }
 
