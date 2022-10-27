@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --main-bg-color: rgb(93, 193, 135);
+}
+.header{
+  background-color: var(--main-bg-color);
+  padding: 10px;
+  color: white;
+  margin-bottom: 10px;
+}
+.sidebar h3{
+  text-align: center;
+}
+.main{
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+}
+.cohortlist li:first-child{
+  border-top: 2px var(--main-bg-color) solid;
+}
+.cohortactive{
+  border-bottom: 2px lightyellow solid;
+  color: blue;
+  background-color: rgba(255, 217, 0, 0.421);
+}
+.cohortlist {
+  padding: 5px;
+}
+.cohortlist li{
+  border-bottom: 2px var(--main-bg-color) solid;
+  padding: 15px;
+  cursor: pointer;
+  transition: 0.5s;
+  height: auto;
+}
+.cohortlist li:hover{
+  background-color: lightyellow;
+}
+.cohortlistcontent{
+  height: calc(100vh - 98px);
+  overflow-y: scroll;
+  border-top: 2px var(--main-bg-color) solid;
+}
+.cohortlistcontent-li{
+  list-style: none;
+  border: 1px solid var(--main-bg-color);
+  margin: 10px;
+  padding: 20px;
+  transition: all 0.3s;
+  max-height: 100px;
+}
+.cohortlistcontent-li:hover{
+  background-color: rgb(252, 252, 243);
+  border-right: 2px gold solid;
+  border-bottom: 2px gold solid;
+  border-left: 1px gold solid;
+  border-top: 1px gold solid;
+  box-shadow: 0px 4px 4px 0px lightgray;
+}
+.cohortlistcontent-li-active{
+  max-height: 500px;
+  
+}
+.cohortcard{
+  display: flex;
+}
+.cohortcard div:last-of-type {
+  margin-left: auto;
+  color: var(--main-bg-color);
+}
+.cohortcard img{
+  width: 68px;
+  height: auto;
+  border: whitesmoke 1px solid;
+  margin-right: 10px;
+  border-radius: 4px;
+}
+.cohortshowmore{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 10px;
+}
+.cohortshowmore p{
+  padding: 5px;
+}
+.cohortshowmore p span:first-of-type{
+  color: var(--main-bg-color);
+}
+.codewarspercentspan{
+  border-radius: 4px;
+  padding: 0px 4px;
+  background-color: lightslategray;
+}
+.oneononenote{
+  display: grid;
+  gap: 25px;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 20px;
+  border-top: 2px var(--main-bg-color) solid;
+}
+.oneononenote h3{
+  margin: 20px 0px;
+}
+.oneononenote textarea{
+  width: 100%;
+}
+.notebutton{
+  padding: 0px 5px;
+  border-radius: 4px;  
+}
+.onoononenote-ol{
+  margin: 10px;
+}
+.error-input{
+  border: 1px red solid;
+}
+.errormessage{
+  color: red;
+  margin-left: 20px;
+}
+.cohortlist-count{
+  padding: 0px 5px;
+  border-radius: 5px;
+  background-color: lightgray;
+}
