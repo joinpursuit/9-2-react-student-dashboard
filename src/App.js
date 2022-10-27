@@ -1,9 +1,21 @@
+import "./index.css";
 
+import Header from "./components/Header";
+import Students from "./components/Students";
+import CohortListings from "./components/CohortListings";
+import { useState } from "react";
 function App() {
+  /**state is set to false so that when a button is clicked in cohortListings
+   * state will be toggled to true.
+   */
+  const [cohort, setCohort] = useState("");
+
   return (
-    <div>
-      <h1>Student Dashboard</h1>
-    </div>
+    <>
+      <Header />
+      <CohortListings cohort={cohort} setCohort={setCohort} />
+      <Students cohort={cohort} setCohort={setCohort} />
+    </>
   );
 }
 
