@@ -2,7 +2,16 @@
   display: block;
   margin-left: 50px;
   margin-top: 20px;
-  height: 30px;
+  height: 38px;
   width: 250px;
-  padding-left: 10px;
+  padding: 10px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.search-by-name input:hover {
+  border: 1px solid #5c936e;
+}
+.search-by-name input:focus-visible {
+  border: 2px solid #5c936e;
 }
