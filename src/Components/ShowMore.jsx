@@ -4,11 +4,13 @@ import { useState } from "react";
 //command shift f whole project
 const ShowMore = ({ data }) => {
 
-    
+    let percent = ((data.codewars.current.total / data.codewars.goal.total) * 100).toFixed(2)
+   
        
     
     // console.log(data)
   return (
+
     <div className="additional-info">
         <div>
     <span className="codewar"><h3>CodeWars:</h3></span>
@@ -26,6 +28,7 @@ const ShowMore = ({ data }) => {
     </p>
     <p>
         <span>Precent Of Goal Achieved: </span>
+       <div className={percent >= 100? "a" : percent > 50 ? "b": "c"}>{percent}%</div> 
     </p>
     </div>
     <div>
@@ -34,15 +37,15 @@ const ShowMore = ({ data }) => {
     </p>
     <p>
         <span>Assignments: </span>
-        {data.cohort.scores.assignments}
+        {data.cohort.scores.assignments}%
     </p>
     <p>
         <span>Projects: </span>                                           
-        {data.cohort.scores.projects}
+        {data.cohort.scores.projects}%
     </p>
     <p>
         <span>Assessments: </span>
-        {data.cohort.scores.assessments}
+        {data.cohort.scores.assessments}%
     </p>
     </div>
     <div>

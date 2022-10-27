@@ -8,7 +8,7 @@ function Cohort({ studentInfo, setChangeCohortDisplay, setCohortDisplay }) {
   
   let dates = [
     ...new Map(studentInfo.map((s) => [s.cohort.cohortCode, s])).keys(),
-  ];
+  ].sort((a,b) =>  b.slice(-4) - a.slice(-4)).reverse()
 
   
 
