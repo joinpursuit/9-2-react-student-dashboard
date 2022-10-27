@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import CohortList from "./components/cohortList/CohortList";
 import Navbar from "./components/navbar/Navbar";
+import SearchByName from "./components/searchByName/SearchByName";
 import StudentList from "./components/studentList/StudentList";
 import data from "./data/data.json";
 
@@ -9,6 +10,7 @@ function App() {
   const [filteredStudents, setFilteredStudents] = useState(data);
   const [cohortCodes, setCohortCodes] = useState([]);
   const [selectedCohort, setSelectedCohort] = useState("All Students");
+  // const [searchResults, setSearchResults] = useState(null);
 
   function filterStudentsByCohort(cohort) {
     let newStudents;
@@ -51,9 +53,20 @@ function App() {
     getUniqueCohortCodes(data);
   }, []);
 
+  function searchStudents(e) {
+    const searchInput = e.target.value.trim().toLowerCase();
+    const foundStudents = students.filter(({ names }) =>
+      Object.values(names).join("").toLowerCase().includes(searchInput)
+    );
+    console.log(foundStudents);
+    // setSearchResults(foundStudents);
+    setFilteredStudents(foundStudents);
+  }
+
   return (
     <div className="App">
       <Navbar />
+      <SearchByName searchStudent={searchStudents} />
       <main>
         <CohortList
           cohortCodes={cohortCodes}
