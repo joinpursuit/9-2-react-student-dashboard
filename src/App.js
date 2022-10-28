@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CohortList from "./components/cohortList/CohortList";
 import Navbar from "./components/navbar/Navbar";
 import OnTrackStudents from "./components/onTrackStudents/OnTrackStudents";

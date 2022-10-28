@@ -6,10 +6,6 @@
   list-style: none;
   padding: 0;
 }
-.student-list .student {
-  margin-bottom: 15px;
-  border: 1px solid #5c936e;
-}
 .card {
   display: grid;
   grid-template-columns: 20% 80%;
