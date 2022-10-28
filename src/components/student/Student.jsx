@@ -36,6 +36,10 @@ export default function Student({ student, addNoteToStudent }) {
               <p>
                 <span id="bd">Birthday: </span> {formatDob(student.dob)}
               </p>
+              <p>
+                Cohort: {student.cohort.cohortCode.slice(0, -4)}{" "}
+                {student.cohort.cohortCode.slice(-4)}{" "}
+              </p>
               <br />
             </div>
             <div>
