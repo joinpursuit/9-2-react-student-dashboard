@@ -11,9 +11,9 @@
 }
 
 .current-page {
-  background: yellowgreen;
+  background: #8d8c8d;
 }
 
 .pagination button:hover {
-  background-color: yellowgreen;
+  background-color: #8c848d;
 }

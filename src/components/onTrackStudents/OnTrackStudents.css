@@ -4,11 +4,14 @@
 }
 
 .show-on-track-students button {
-  height: 40px;
+  height: 45px;
+  padding: 0 20px;
   box-shadow: 1px 2px 2px black;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .show-on-track-students .active {
-  background-color: #c0d5c7;
+  background-color: #252831;
+  color: #f8f8f7;
 }
