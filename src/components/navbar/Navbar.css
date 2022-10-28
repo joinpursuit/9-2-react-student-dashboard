@@ -1,5 +1,6 @@
 .navbar {
-  background: #393a3f;
+  /* background: #393a3f; */
+  background: linear-gradient(45deg, #393a3f, #8c848d);
   color: #f8f8f7;
   text-align: center;
   height: 80px;

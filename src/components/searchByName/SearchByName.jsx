@@ -18,10 +18,10 @@ export default function SearchByName({ searchStudent }) {
     <div className="search-by-name">
       <Box sx={{ minWidth: 120 }}>
         <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Search By</InputLabel>
+          <InputLabel id="select-label">Search By</InputLabel>
           <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
+            labelId="select-label"
+            id="select"
             value={searchMode}
             label="Search By"
             onChange={handleSelectChange}
