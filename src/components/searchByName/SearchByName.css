@@ -1,9 +1,13 @@
+.search-by-name {
+  justify-self: left;
+  align-self: center;
+  width: 90%;
+}
 .search-by-name input {
   display: block;
-  margin-left: 50px;
-  margin-top: 20px;
+  margin: 0 auto;
   height: 38px;
-  width: 250px;
+  width: 280px;
   padding: 10px;
   outline: none;
   box-sizing: border-box;
