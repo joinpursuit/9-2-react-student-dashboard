@@ -9,7 +9,6 @@ import data from "./data/data.json";
 function App() {
   const [students, setStudents] = useState(data);
   const [filteredStudents, setFilteredStudents] = useState(data);
-  const [selectedCohort, setSelectedCohort] = useState("All Students");
   const [title, setTitle] = useState("All Students");
 
   function filterStudentsByCohort(cohort) {
@@ -22,7 +21,6 @@ function App() {
       );
     }
     setTitle(cohort);
-    setSelectedCohort(cohort);
     setFilteredStudents(newStudents);
   }
 
@@ -64,7 +62,6 @@ function App() {
         <StudentList
           title={title}
           filteredStudents={filteredStudents}
-          selectedCohort={selectedCohort}
           addNoteToStudent={addNoteToStudent}
         />
       </main>

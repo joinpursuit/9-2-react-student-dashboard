@@ -4,7 +4,6 @@ import "./StudentList.css";
 import Pagination from "../pagination/Pagination";
 export default function StudentList({
   filteredStudents,
-  selectedCohort,
   addNoteToStudent,
   title,
 }) {
