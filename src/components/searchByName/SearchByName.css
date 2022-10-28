@@ -3,8 +3,11 @@
   align-self: center;
   width: 90%;
   padding: 10px;
+  display: grid;
+  grid-template-columns: 40% 70%;
+  place-items: self-start;
 }
-.search-by-name input {
+/* .search-by-name input {
   display: inline-block;
   margin: 0 auto;
   height: 38px;
@@ -12,7 +15,7 @@
   padding: 10px;
   outline: none;
   box-sizing: border-box;
-}
+} */
 
 .search-by-name input:hover {
   border: 1px solid #5c936e;
@@ -21,13 +24,10 @@
   border: 2px solid #5c936e;
 }
 
-.search-by-name select {
+/* .search-by-name select {
   display: inline-block;
   height: 38px;
   margin-right: 10px;
   box-sizing: border-box;
   padding: 0 10px;
-}
-.search-by-name select * {
-  background-color: blue;
-}
+} */
