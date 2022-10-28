@@ -4,4 +4,14 @@
   text-align: center;
   height: 80px;
   padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar h1 {
+  font-weight: 900;
+  font-style: italic;
+  font-size: 4rem;
+  font-family: "Montserrat", sans-serif;
 }
