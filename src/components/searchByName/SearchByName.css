@@ -2,9 +2,10 @@
   justify-self: left;
   align-self: center;
   width: 90%;
+  padding: 10px;
 }
 .search-by-name input {
-  display: block;
+  display: inline-block;
   margin: 0 auto;
   height: 38px;
   width: 280px;
@@ -18,4 +19,15 @@
 }
 .search-by-name input:focus-visible {
   border: 2px solid #5c936e;
+}
+
+.search-by-name select {
+  display: inline-block;
+  height: 38px;
+  margin-right: 10px;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+.search-by-name select * {
+  background-color: blue;
 }

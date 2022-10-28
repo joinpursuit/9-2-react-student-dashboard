@@ -33,12 +33,19 @@ function App() {
     setStudents(newStudentsArr);
   }
 
-  function searchStudents(e) {
+  function searchStudents(e, searchMode) {
     const searchInput = e.target.value.trim().toLowerCase();
-    const foundStudents = students.filter(({ names }) =>
-      Object.values(names).join("").toLowerCase().includes(searchInput)
-    );
-    console.log(foundStudents);
+    let foundStudents;
+    if (searchMode === "name") {
+      foundStudents = students.filter(({ names }) =>
+        Object.values(names).join("").toLowerCase().includes(searchInput)
+      );
+    } else if (searchMode === "email") {
+      foundStudents = students.filter((student) =>
+        student.username.includes(searchInput)
+      );
+    }
+
     setFilteredStudents(foundStudents);
     searchInput ? setTitle("Search Results") : setTitle("All Students");
   }
