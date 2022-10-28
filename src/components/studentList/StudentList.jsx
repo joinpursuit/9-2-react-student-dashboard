@@ -6,21 +6,18 @@ export default function StudentList({
   filteredStudents,
   selectedCohort,
   addNoteToStudent,
+  title,
 }) {
   const [studentsTodisplay, setStudentsToDisplay] = useState([]);
 
   return (
     <div className="student-list-container">
       <div className="grid">
-        <h3>
-          {selectedCohort === "All Students"
-            ? "All Students"
-            : selectedCohort.slice(0, -4) + " " + selectedCohort.slice(-4)}
-        </h3>
+        <h3>{title}</h3>
         <Pagination
+          title={title}
           filteredStudents={filteredStudents}
           setStudentsToDisplay={setStudentsToDisplay}
-          selectedCohort={selectedCohort}
         />
       </div>
 

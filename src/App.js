@@ -10,6 +10,7 @@ function App() {
   const [students, setStudents] = useState(data);
   const [filteredStudents, setFilteredStudents] = useState(data);
   const [selectedCohort, setSelectedCohort] = useState("All Students");
+  const [title, setTitle] = useState("All Students");
 
   function filterStudentsByCohort(cohort) {
     let newStudents;
@@ -17,9 +18,10 @@ function App() {
       newStudents = students;
     } else {
       newStudents = students.filter(
-        (student) => student.cohort.cohortCode === cohort
+        (student) => student.cohort.cohortCode === cohort.split(" ").join("")
       );
     }
+    setTitle(cohort);
     setSelectedCohort(cohort);
     setFilteredStudents(newStudents);
   }
@@ -40,6 +42,7 @@ function App() {
     );
     console.log(foundStudents);
     setFilteredStudents(foundStudents);
+    searchInput ? setTitle("Search Results") : setTitle("All Students");
   }
 
   return (
@@ -48,6 +51,7 @@ function App() {
       <div className="search-bar">
         <SearchByName searchStudent={searchStudents} />
         <OnTrackStudents
+          setTitle={setTitle}
           students={students}
           setFilteredStudents={setFilteredStudents}
         />
@@ -58,6 +62,7 @@ function App() {
           filterStudentsByCohort={filterStudentsByCohort}
         />
         <StudentList
+          title={title}
           filteredStudents={filteredStudents}
           selectedCohort={selectedCohort}
           addNoteToStudent={addNoteToStudent}

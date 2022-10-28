@@ -3,16 +3,17 @@ import "./Pagination.css";
 export default function Pagination({
   filteredStudents: students,
   setStudentsToDisplay,
-  selectedCohort,
+  title,
 }) {
   const [currentPage, setCurrentPage] = useState(1);
   const resultsPerPage = 10;
   const numOfPages = Math.ceil(students.length / resultsPerPage);
 
-  // if different cohort is selected reset current page
+  // if different cohort is selected or use search features, title will change
+  // upon title change,  reset current page
   useEffect(() => {
     setCurrentPage(1);
-  }, [selectedCohort]);
+  }, [title]);
 
   // if currentPage is changed,get students according to current page and change state
   useEffect(() => {

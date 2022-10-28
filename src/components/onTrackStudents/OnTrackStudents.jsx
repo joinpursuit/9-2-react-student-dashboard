@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import "./OnTrackStudents.css";
 
-export default function OnTrackStudents({ students, setFilteredStudents }) {
+export default function OnTrackStudents({
+  students,
+  setFilteredStudents,
+  setTitle,
+}) {
   const [showGradStudents, setShowGradStudents] = useState(false);
   const [gradStudents, setGradStudents] = useState([]);
 
@@ -17,14 +21,19 @@ export default function OnTrackStudents({ students, setFilteredStudents }) {
   useEffect(() => {
     if (showGradStudents) {
       setFilteredStudents(gradStudents);
+      setTitle("Graduating Students");
     } else {
       setFilteredStudents(students);
+      setTitle("All Students");
     }
-  }, [showGradStudents, gradStudents, setFilteredStudents, students]);
+  }, [showGradStudents, gradStudents, setFilteredStudents, students, setTitle]);
 
   return (
     <div className="show-on-track-students">
-      <button onClick={() => setShowGradStudents(!showGradStudents)}>
+      <button
+        className={showGradStudents ? "active" : ""}
+        onClick={() => setShowGradStudents(!showGradStudents)}
+      >
         {showGradStudents ? "Hide" : "Show"} On Track To Graduate Students
       </button>
     </div>

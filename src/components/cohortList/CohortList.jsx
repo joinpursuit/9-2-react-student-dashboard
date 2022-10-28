@@ -16,10 +16,14 @@ export default function CohortList({ students, filterStudentsByCohort }) {
             codesObj[code] = 1;
           }
         }
-        const sortedArr = Object.keys(codesObj).sort(
+        const spaceAddedCodeseArr = Object.keys(codesObj).map(
+          (code) => code.slice(0, -4) + " " + code.slice(-4)
+        );
+
+        const sorted = spaceAddedCodeseArr.sort(
           (a, b) => b.slice(-4) - a.slice(-4)
         );
-        setCohortCodes(sortedArr);
+        setCohortCodes(sorted);
       }
     }
 
@@ -36,7 +40,7 @@ export default function CohortList({ students, filterStudentsByCohort }) {
 
         {cohortCodes.map((cohort, i) => (
           <li key={i} onClick={() => filterStudentsByCohort(cohort)}>
-            {cohort.slice(0, -4) + " " + cohort.slice(-4)}
+            {cohort}
           </li>
         ))}
       </ul>
