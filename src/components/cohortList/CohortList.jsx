@@ -28,7 +28,7 @@ export default function CohortList({ students, filterStudentsByCohort }) {
     }
 
     getUniqueCohortCodes(students);
-  }, []);
+  }, [students]);
 
   return (
     <div className="cohort-list-container">
