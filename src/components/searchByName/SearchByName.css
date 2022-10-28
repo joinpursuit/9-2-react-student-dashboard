@@ -7,15 +7,6 @@
   grid-template-columns: 40% 70%;
   place-items: self-start;
 }
-/* .search-by-name input {
-  display: inline-block;
-  margin: 0 auto;
-  height: 38px;
-  width: 280px;
-  padding: 10px;
-  outline: none;
-  box-sizing: border-box;
-} */
 
 .search-by-name input {
   background-color: #f8f8f7;
@@ -32,15 +23,3 @@
   background-color: #f8f8f7;
   border-radius: 5px;
 }
-
-.search-by-name input:focus-within {
-  border-color: #252831;
-}
-
-/* .search-by-name select {
-  display: inline-block;
-  height: 38px;
-  margin-right: 10px;
-  box-sizing: border-box;
-  padding: 0 10px;
-} */

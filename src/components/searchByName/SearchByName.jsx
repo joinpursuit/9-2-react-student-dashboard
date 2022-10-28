@@ -13,11 +13,7 @@ export default function SearchByName({ searchStudent }) {
   function handleSelectChange(e) {
     setSearchMode(e.target.value);
   }
-  const [age, setAge] = useState("");
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
   return (
     <div className="search-by-name">
       <Box sx={{ minWidth: 120 }}>
@@ -52,15 +48,6 @@ export default function SearchByName({ searchStudent }) {
           size="small"
         />
       </Box>
-      {/* <select onChange={handleSelectChange}>
-        <option value="name">Search by Name</option>
-        <option value="email">Search by Email</option>
-      </select> */}
-      {/* <input
-        type="text"
-        placeholder="s e a r c h . . .                             🔍"
-        onChange={(e) => searchStudent(e, searchMode)}
-      ></input> */}
     </div>
   );
 }
