@@ -9,7 +9,6 @@ import data from "./data/data.json";
 function App() {
   const [students, setStudents] = useState(data);
   const [filteredStudents, setFilteredStudents] = useState(data);
-  const [cohortCodes, setCohortCodes] = useState([]);
   const [selectedCohort, setSelectedCohort] = useState("All Students");
 
   function filterStudentsByCohort(cohort) {
@@ -43,25 +42,6 @@ function App() {
     setFilteredStudents(foundStudents);
   }
 
-  useEffect(() => {
-    function getUniqueCohortCodes(array = []) {
-      const codesObj = {};
-      if (array.length) {
-        for (let student of array) {
-          const code = student.cohort.cohortCode;
-          if (code in codesObj) {
-            codesObj[code]++;
-          } else {
-            codesObj[code] = 1;
-          }
-        }
-        setCohortCodes(codesObj);
-      }
-    }
-
-    getUniqueCohortCodes(data);
-  }, []);
-
   return (
     <div className="App">
       <Navbar />
@@ -74,7 +54,7 @@ function App() {
       </div>
       <main>
         <CohortList
-          cohortCodes={cohortCodes}
+          students={students}
           filterStudentsByCohort={filterStudentsByCohort}
         />
         <StudentList
