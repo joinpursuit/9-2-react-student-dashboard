@@ -1,10 +1,22 @@
 import React from "react";
+import { useState } from "react";
 import data from "./data/data";
 import ProfileList from "./components/ProfileList";
 import "./App.css";
 import Cohort from "./components/Cohort";
 
+
+function filterProfileList(strParam) {
+  return data.filter((e) => {
+   return e.cohort.cohortCode === strParam 
+  });
+}
+
+let selectedCohort="All Students"
+
 function App() {
+  const [cohort, setCohort] = useState("Winter2026");
+
   return (
     <div className="App">
       <div className="header">
@@ -17,13 +29,11 @@ function App() {
       <main>
         <div className="main-container">
           <div className="cohort">
-            <Cohort />
+            <Cohort setCohort={setCohort}/>
           </div>
 
           <div className="profileList">
-            <h1>All Students</h1>
-            <span>Total Students:</span>
-            <ProfileList props={data} />
+            <ProfileList data={filterProfileList(cohort)}/>
           </div>
         </div>
       </main>

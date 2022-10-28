@@ -1,17 +1,34 @@
 import React from "react";
 
-function Cohort() {
+function Cohort({setCohort}) {
+
+
+  function HandleState(e) {
+    setCohort(e.target.innerText.split(" ").join(""));
+  }
+
   return (
-    <div className="cohort-main">
-      <h3>All Students</h3>
-      <h3>Winter 2026</h3>
-      <h3>Fall 2026</h3>
-      <h3>Summer 2026</h3>
-      <h3>Spring 2026</h3>
-      <h3>Winter 2025</h3>
-      <h3>Fall 2025</h3>
-      <h3>Summer 2025</h3>
-      <h3>Spring 2025</h3>
+    <div className="cohort-container">
+      <h3 className="cohort-title">Choose a Class by Start Date</h3>
+      <ul className="cohort-list">
+        <li>All Students</li> <hr />
+        <li onClick={HandleState}>Winter 2026</li>
+        <hr />
+        <li onClick={HandleState}>Fall 2026</li>
+        <hr />
+        <li onClick={HandleState}>Summer 2026</li>
+        <hr />
+        <li onClick={HandleState}>Spring 2026</li>
+        <hr />
+        <li onClick={HandleState}>Winter 2025</li>
+        <hr />
+        <li onClick={HandleState}>Fall 2025</li>
+        <hr />
+        <li onClick={HandleState}>Summer 2025</li>
+        <hr />
+        <li onClick={HandleState}>Spring 2025</li>
+        <hr />
+      </ul>
     </div>
   );
 }
