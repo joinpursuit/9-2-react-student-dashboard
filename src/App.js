@@ -72,6 +72,7 @@ function App() {
           addNoteToStudent={addNoteToStudent}
         />
       </main>
+      <div id="chart"></div>
     </div>
   );
 }
