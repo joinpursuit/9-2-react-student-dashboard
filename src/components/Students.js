@@ -1,60 +1,78 @@
 import { useState } from "react";
 import data from "../data/data.json";
-export default function Students({ cohort, setCohort }) {
+import StudentDetails from "./StudentDetails";
+export default function Students({ cohort, setCohort}) {
   const [students, setStudents] = useState(data);
-
+  const [showMore, setShowMore] = useState(false);
   let totalStudents = students.length;
-  console.log(cohort);
-  /**notes: filterByCohort should also change the value of total students based on selected cohort*/
-
-  // students.map((student) => {});
 
   const newBirthday = (date) => {
     const dob = new Date(date);
-    const month = dob.toLocaleString("default", {month: "long"})
-    const day = dob.getDate()
-    const year = dob.getFullYear()
-    return month + " " + day + ", " + year
+    const month = dob.toLocaleString("default", { month: "long" });
+    const day = dob.getDate();
+    const year = dob.getFullYear();
+    return month + " " + day + ", " + year;
+    // console.log(new Date("2/3/1979"));
   };
-  console.log(new Date("2/3/1979"))
 
+  const toggleStudentDetails = (e) => {
+e.preventDefault()
 
+  }
+ 
 
-  // if(cohort) {
-  // }
+  console.log(students);
   return (
     <>
       {cohort ? (
         <section>
-        <h3>Lis of all Students</h3>
+          <h3>{cohort}</h3>
 
-        <h5>
-          Total Students: <span className="highlights">{totalStudents}</span>
-        </h5>
+          <h5>
+            Total Students: <span className="highlights">{totalStudents}</span>
+          </h5>
 
-        <ul>
-          {students.filter((fellow) => fellow.cohort.cohortCode  === cohort).map((fellow) => {
-              return (
-                <li key={fellow.id}>
-                  {/* <img src={fellow.profilePhoto} width="90" height="90" /> */}
+          <ul>
+            {students
+              .filter((fellow) => fellow.cohort.cohortCode === cohort)
+              .map((fellow) => {
+                return (
+                  <li key={fellow.id}>
+                    {fellow.certifications.resume &&
+                    fellow.certifications.linkedin &&
+                    fellow.certifications.github &&
+                    fellow.certifications.mockInterview &&
+                    fellow.codewars.current.total ? (
+                      <p className="onTrack">On Track to Graduate</p>
+                    ) : null}
+                    {/* <img src={fellow.profilePhoto} width="100" height="100" /> */}
 
-                  <p>{fellow.names.surname}</p>
-                  <p>{fellow.username}</p>
-                  <p>
-                    <span className="highlights">Birthday:</span> {newBirthday(fellow.dob)}
-                  </p>
+                    <p>{fellow.names.preferredName} {fellow.names.surname}</p>
 
-                  <button className="showMore">Show More...</button>
-                </li>
-              );
-            })
-          
-          }
-        </ul>
-      </section>
+                    <p>{fellow.username}</p>
+                    <p>
+                      <span className="highlights">Birthday:</span>{" "}
+                      {newBirthday(fellow.dob)}
+                    </p>
+                    <div>
+                      <button
+                        type="button"
+                        className="showMore"
+                        onClick={(e) => toggleStudentDetails(setShowMore(!showMore))}>
+                        {!showMore  ? "show more... ": "show less..."}
+                              </button>
+               
+                       
+                     
+                    </div>
+                  </li>
+                );
+              })}
+          </ul>
+        </section>
       ) : (
         <section>
-        { cohort ? <h3>cohort</h3> : <h3>All Students</h3>}
+          <h3>All Students</h3>
 
           <h5>
             Total Students: <span className="highlights">{totalStudents}</span>
@@ -64,16 +82,31 @@ export default function Students({ cohort, setCohort }) {
             {students.map((fellow) => {
               return (
                 <li key={fellow.id}>
-                  {/* <img src={fellow.profilePhoto} width="90" height="90" /> */}
-
-                  <p>{fellow.names.surname}</p>
+                  {/* <img src={fellow.profilePhoto} width="90" height="90" />  */}
+                  {fellow.certifications.resume &&
+                  fellow.certifications.linkedin &&
+                  fellow.certifications.github &&
+                  fellow.certifications.mockInterview &&
+                  fellow.codewars.current.total ? (
+                    <p className="onTrack">On Track to Graduate</p>
+                  ) : null}
+                  <p>{fellow.names.preferredName} {fellow.names.surname}</p>
                   <p>{fellow.username}</p>
                   <p>
-                    <span className="highlights">Birthday:</span> {newBirthday(fellow.dob)}
+                    <span className="highlights">Birthday: </span>
+                    {newBirthday(fellow.dob)}
                   </p>
 
-                  <button className="showMore">Show More...</button>
+                  <button
+                        type="button"
+                        className="showMore"
+                        onClick={(e) => toggleStudentDetails(setShowMore(!showMore))}>
+                        {!showMore  ? "show more... ": "show less..."}
+                              </button>
+                              {showMore  && <StudentDetails data={data} />}
+
                 </li>
+        
               );
             })}
           </ul>
