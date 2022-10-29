@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import data from "../data/data";
 import CommentsSection from "./CommentsSection.jsx";
+import PercentColor from "./PercentColor";
 
 function ShowMoreButton({ props }) {
   const [state, setState] = useState("Show More...");
@@ -19,9 +20,23 @@ function ShowMoreButton({ props }) {
     return e.id === props;
   })[0];
 
+  function findComment(data) {
+    if (data.notes.length === 0) {
+      return <li>no comments added yet..</li>;
+    } else {
+      return (
+        <li>
+          {data.notes[0].commenter} Left A Comment: "{data.notes[0].comment}"
+        </li>
+      );
+    }
+  }
+
   return (
     <div>
-      <button onClick={handleSetState}>{state}</button>
+      <button id="show-more-btn" onClick={handleSetState}>
+        {state}
+      </button>
       {state === "Show Less..." ? (
         <div className="show-more-info">
           <ul>
@@ -41,13 +56,13 @@ function ShowMoreButton({ props }) {
               </h6>
               <h6>
                 Percentage Of Goal Achieved:{" "}
-                <span id="tally">
+                <div id="tally-percent">
                   {(
                     (info.codewars.current.total / info.codewars.goal.total) *
                     100
                   ).toFixed(2)}{" "}
                   %
-                </span>
+                </div>
               </h6>
             </li>
             <li className="scores">
@@ -88,6 +103,11 @@ function ShowMoreButton({ props }) {
             </li>
           </ul>
           <CommentsSection />
+          <ul>
+            <h5 className="comments">Comments</h5>
+            <hr />
+            {findComment(info)}
+          </ul>
         </div>
       ) : null}
     </div>

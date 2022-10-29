@@ -5,17 +5,24 @@ import ProfileList from "./components/ProfileList";
 import "./App.css";
 import Cohort from "./components/Cohort";
 
-
-function filterProfileList(strParam) {
-  return data.filter((e) => {
-   return e.cohort.cohortCode === strParam 
-  });
-}
-
-let selectedCohort="All Students"
-
 function App() {
-  const [cohort, setCohort] = useState("Winter2026");
+  const [cohort, setCohort] = useState("All Students");
+
+  // function filterProfileList(strParam) {
+  //   if (strParam === "All Students") {
+  //     return <ProfileList data={data} />;
+  //   } else {
+  //     return data.filter((e) => {
+  //       return e.cohort.cohortCode === strParam;
+  //     });
+  //   }
+  // }
+
+  function filterProfileList(strParam) {
+    return data.filter((e) => {
+      return e.cohort.cohortCode === strParam;
+    });
+  }
 
   return (
     <div className="App">
@@ -29,11 +36,11 @@ function App() {
       <main>
         <div className="main-container">
           <div className="cohort">
-            <Cohort setCohort={setCohort}/>
+            <Cohort setCohort={setCohort} />
           </div>
 
           <div className="profileList">
-            <ProfileList data={filterProfileList(cohort)}/>
+            <ProfileList data={filterProfileList(cohort)} />
           </div>
         </div>
       </main>

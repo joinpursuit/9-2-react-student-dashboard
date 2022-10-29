@@ -1,10 +1,10 @@
 import React from "react";
 
-function Cohort({setCohort}) {
-
-
+function Cohort({ setCohort }) {
   function HandleState(e) {
     setCohort(e.target.innerText.split(" ").join(""));
+    const elementTitle = document.getElementById("cohort-title");
+    elementTitle.innerText = e.target.innerText;
   }
 
   return (

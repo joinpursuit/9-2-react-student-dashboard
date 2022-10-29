@@ -2,19 +2,12 @@ import React from "react";
 import ShowMoreButton from "./ShowMoreButton";
 
 function ProfileList({ data }) {
-  // const onTrack = <span>On Track to Graduate</span>;
-
-  // function onTrack (data) {
-  //   data.forEach((e) => {
-
-  //   })
-  // }
-
-  const onTrack = <h5 id="onTrack">Set to Graduate</h5>;
+  const onTrack = <h5 id="onTrack">On Track To Graduate</h5>;
+  const notOnTrack = <h5 id="not-on-track"> NOT On Track To Graduate</h5>;
 
   return (
     <div id="List">
-      <h1>All Students</h1>
+      <h1 id="cohort-title">All Students</h1>
       <span>Total Students:{data.length}</span>
       {data.map((e) => {
         return (
@@ -41,7 +34,7 @@ function ProfileList({ data }) {
             e.certifications.mockInterview &&
             e.codewars.current.total > 600
               ? onTrack
-              : null}
+              : notOnTrack}
 
             <ShowMoreButton props={e.id} />
           </div>
