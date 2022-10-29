@@ -24,9 +24,34 @@ export default function studentDetails({ student, addNoteToStudent }) {
         </div>
         <div className="scores">
           <p>Scores</p>
-          <p>Assignments:{" " + cohort.scores.assignments * 100}%</p>
-          <p>Projects:{" " + cohort.scores.projects * 100}% </p>
-          <p>Assessments:{" " + cohort.scores.assessments * 100}% </p>
+
+          <p>Assignments:</p>
+          <div className="percent-bar-container">
+            <div
+              className="percent-bar"
+              style={{ width: `${cohort.scores.assignments * 100}%` }}
+            >
+              {cohort.scores.assignments * 100}%
+            </div>
+          </div>
+          <p>Projects:</p>
+          <div className="percent-bar-container">
+            <div
+              className="percent-bar"
+              style={{ width: `${cohort.scores.projects * 100}%` }}
+            >
+              {cohort.scores.projects * 100}%
+            </div>
+          </div>
+          <p>Assessments:</p>
+          <div className="percent-bar-container">
+            <div
+              className="percent-bar"
+              style={{ width: `${cohort.scores.assessments * 100}%` }}
+            >
+              {cohort.scores.assessments * 100}%
+            </div>
+          </div>
         </div>
         <div className="certifications">
           <p>Certifications</p>
