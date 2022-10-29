@@ -4,6 +4,7 @@
 body,
 main {
   min-height: 100vh;
+  scroll-behavior: smooth;
 }
 .App {
   display: grid;
