@@ -44,6 +44,10 @@ h1.title {
   column-gap: 20px;
 }
 
+#searchbar:hover {
+  background-color: rgb(182, 185, 187);
+}
+
 .cohorts {
   text-align: center;
 }
