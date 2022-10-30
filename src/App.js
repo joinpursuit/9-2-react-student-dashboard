@@ -12,7 +12,14 @@ function App() {
 
   let condition = filter !== "All Students" ? filteredStudents : data; 
 
-  const [allNotes, setAllNotes] = useState([]);
+  let currentNotes = [];
+  data.forEach(student => {
+    student.notes.forEach(note => {
+      note.id = student.id
+      currentNotes.push(note);
+    })
+  })
+  const [allNotes, setAllNotes] = useState(currentNotes);
 
   function handleFilterChange(e, cohort) {
     e.preventDefault();

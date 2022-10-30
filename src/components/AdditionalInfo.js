@@ -2,7 +2,7 @@ import { useState} from "react";
 
 export default function AdditionalInfo({ student, allNotes, setAllNotes}) {
   const [text, setText] = useState({
-    name: "",
+    commenter: "",
     comment: ""
   });  
 
@@ -25,8 +25,8 @@ export default function AdditionalInfo({ student, allNotes, setAllNotes}) {
   function handleOnSubmit(e){
     e.preventDefault();
 
-    if(text.name === ""){
-        text.name = "Anonymous User";
+    if(text.commenter === ""){
+        text.commenter = "Anonymous User";
     }
     if(text.comment === ""){
         return alert ("Comment box is empty");
@@ -36,7 +36,7 @@ export default function AdditionalInfo({ student, allNotes, setAllNotes}) {
     // addNote(student.id, text);
     setComments([...comments,text]) // interchangable
     setText({
-        name: "",
+        commenter: "",
         comment: ""
       });
   }
@@ -85,7 +85,7 @@ export default function AdditionalInfo({ student, allNotes, setAllNotes}) {
         <h4> 1-on-1 Notes </h4>
         <form onSubmit={handleOnSubmit}>
             <label> Commenter Name: </label>
-            <input type="text" value={text.name} onChange={ (e) => {handleOnChange(e, "name")}}/> 
+            <input type="text" value={text.commenter} onChange={ (e) => {handleOnChange(e, "commenter")}}/> 
             <label> Comment: </label>
             <input type="text" value={text.comment} onChange={ (e) => {handleOnChange(e, "comment")}}/> 
             <button> Add Note</button>
@@ -94,7 +94,7 @@ export default function AdditionalInfo({ student, allNotes, setAllNotes}) {
             {comments.map((com, idx) => {
                 return(
                     <li key={idx}>
-                        {com.name} says, "{com.comment}"
+                        {com.commenter} says, "{com.comment}"
                     </li>
                 )
             })}
