@@ -17,3 +17,8 @@
 .cohort-list-container li:hover {
   transform: scale(1.1);
 }
+
+.cohort-list-container .active {
+  /* color: #c9a6d9; */
+  color: #7f9fdf;
+}

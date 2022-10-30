@@ -64,6 +64,7 @@ function App() {
       </div>
       <main>
         <CohortList
+          title={title}
           students={students}
           filterStudentsByCohort={filterStudentsByCohort}
         />

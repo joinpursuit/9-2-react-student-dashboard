@@ -1,9 +1,27 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./CohortList.css";
 
-export default function CohortList({ students, filterStudentsByCohort }) {
+export default function CohortList({
+  students,
+  title,
+  filterStudentsByCohort,
+}) {
   const [cohortCodes, setCohortCodes] = useState([]);
+  const [activeElement, setActiveElement] = useState("All Students");
+  const ul = useRef(null);
 
+  function handleClick(e, cohort) {
+    if (e.currentTarget.classList[0] === "all-students") {
+      filterStudentsByCohort("All Students");
+    } else {
+      filterStudentsByCohort(cohort);
+    }
+    const allListEl = e.currentTarget.parentElement.children;
+    for (let li of allListEl) {
+      li.classList.remove("active");
+    }
+    e.currentTarget.classList.add("active");
+  }
   useEffect(() => {
     function getUniqueCohortCodes(array = []) {
       const codesObj = {};
@@ -30,16 +48,30 @@ export default function CohortList({ students, filterStudentsByCohort }) {
     getUniqueCohortCodes(students);
   }, [students]);
 
+  useEffect(() => {
+    console.log("my ul", ul.current.children);
+    const lis = ul.current.children;
+    if (title === "Graduating Students" || title === "Search Results") {
+      for (let li of lis) {
+        li.classList.remove("active");
+      }
+    }
+  }, [title]);
+
   return (
     <div className="cohort-list-container">
       <h3>Choose a Class by Start Date</h3>
-      <ul className="cohort-list">
-        <li key="all" onClick={() => filterStudentsByCohort("All Students")}>
+      <ul className="cohort-list" ref={ul}>
+        <li
+          key="all"
+          className="all-students active"
+          onClick={(e) => handleClick(e)}
+        >
           All Students
         </li>
 
         {cohortCodes.map((cohort, i) => (
-          <li key={i} onClick={() => filterStudentsByCohort(cohort)}>
+          <li key={i} onClick={(e) => handleClick(e, cohort)}>
             {cohort}
           </li>
         ))}
