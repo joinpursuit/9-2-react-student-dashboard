@@ -27,16 +27,22 @@
     color: lightgray;
 
 }
+
 .textpadding{
     padding-left: 5%;
 }
+
 .heading {
     grid-column: span 10fr;
     grid-row: 0/.1;
     width: 100%;
+    background-image: url('./components/logo.png');
+    background-size: 100px;
+    background-repeat: repeat;
     background: #4844EC;
-    padding-left: 10%
+    padding-left: 10%;
 }
+
 .spacer {
     margin-left: 30%;
     margin-right: 30%
