@@ -23,6 +23,7 @@ function CohortsChange({ studentData, title }) {
         }) => {
           return (
             <div key={id}>
+              <br />
               <StudentCard
                 id={id}
                 names={names}

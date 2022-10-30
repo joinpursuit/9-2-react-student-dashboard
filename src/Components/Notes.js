@@ -21,7 +21,7 @@ function AddNotes({ noteLi, setNoteLi }) {
   return (
     <section>
       <h4>1-on-1 Notes</h4>
-      <form onSubmit={handleFormSubmit}>
+      <form onSubmit={handleFormSubmit} id="form">
         <label htmlFor="commenter">Commenter Name: </label>
         <input
           id="commenter"

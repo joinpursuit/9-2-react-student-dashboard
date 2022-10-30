@@ -40,7 +40,7 @@ function Searchbox({
     <input
       id="searchbar"
       type="text"
-      placeholder="Search Students"
+      placeholder="Search Students..."
       value={search}
       onChange={(e) => {
         handleSearch(e);

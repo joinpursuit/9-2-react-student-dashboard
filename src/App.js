@@ -33,7 +33,9 @@ function App() {
             searchResult={searchResult}
             setSearchResult={setSearchResult}
           />
-          <CohortsChange studentData={studentData} title={title} />
+          <div className="right-side">
+            <CohortsChange studentData={studentData} title={title} />
+          </div>
         </div>
       </div>
     </div>

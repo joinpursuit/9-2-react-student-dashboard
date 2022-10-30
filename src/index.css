@@ -9,11 +9,15 @@ header {
   font-size: x-large;
   text-shadow: 6px 6px rgb(11, 11, 26);
   border: 9px solid rgb(32, 128, 231);
+  letter-spacing: 4px;
 }
 
-h2.cohorts {
-  color: rgb(57, 135, 199);
-  text-decoration: underline black dotted;
+.cohorts::after {
+  content: "";
+  display: block;
+  width: 347px;
+  margin-left: 91px;
+  border-bottom: 2px solid #000000;
 }
 
 h1.title,
@@ -34,8 +38,11 @@ h1.title {
 }
 
 .student-name {
-  background-color: rgb(207, 207, 208);
+  background-color: rgb(57, 135, 199);
+  color: white;
   text-align: center;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
 .container {
@@ -46,6 +53,10 @@ h1.title {
 
 #searchbar:hover {
   background-color: rgb(182, 185, 187);
+}
+
+.right-side :nth-child(2) {
+  background-color: rgb(240, 240, 240);
 }
 
 .cohorts {
@@ -69,14 +80,15 @@ img {
 }
 
 .show-hide,
-.birthday {
+.birthday,
+.cohorts {
   color: rgb(57, 135, 199);
 }
 
 .show-hide {
   text-decoration: underline;
   border: none;
-  background-color: white;
+  background-color: inherit;
   cursor: pointer;
 }
 
@@ -97,6 +109,13 @@ img {
   background-color: black;
   color: white;
   padding: 10px;
+  background: linear-gradient(
+    40deg,
+    rgb(225, 217, 200),
+    rgb(32, 128, 231),
+    rgb(225, 217, 200),
+    rgb(32, 128, 231)
+  );
 }
 
 .cohort-list:nth-child(even) {
@@ -117,10 +136,6 @@ img {
   display: grid;
   align-items: center;
   color: green;
-}
-
-.student-container {
-  display: grid;
 }
 
 .green {
@@ -153,7 +168,7 @@ img {
   color: black;
 }
 
-form {
+#form {
   border: 1px solid black;
   padding: 10px;
   background-color: rgb(215, 221, 227);
@@ -195,8 +210,14 @@ section > h4 {
   color: rgb(92, 20, 95);
 }
 
-input:hover {
+#commenter:hover,
+#comment:hover {
   background-color: rgb(180, 205, 212);
+}
+
+#commenter,
+#comment {
+  background-color: white;
 }
 
 .bird {
