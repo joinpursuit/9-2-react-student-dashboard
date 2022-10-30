@@ -29,6 +29,9 @@ setName("")
 setComment("")
 }
 
+
+
+
   return (
     <div>
       <li key={data.id} className="liInfo">
@@ -42,7 +45,7 @@ setComment("")
           <br />
           <span>
             <button onClick={(e) => toggleShowMore(e)}>
-              {!moreDetails ? "Show More" : "Show Less"}
+              {!moreDetails ? <strong>Show More</strong>: <strong>Show Less</strong>}
             </button>
             <div className="ex-info">
               {moreDetails ? <ShowMore data={data} /> : null}
@@ -70,20 +73,22 @@ setComment("")
                 <input type="submit" id="add-note" value="Add Note" />
               </div>
             </form>
-            <ul>
+            <ul id="list">
               {add.map((N) => {
                 return (
-                  <li>
+                  <div>
+                  <li className="show" key={N.comments}>
                     {N.commenter} says,
                     "{N.comment}"
                   </li>
+                  </div>
                 );
               })}
             </ul>
           </div>
         </div>
         <div className="onTrack">
-          <h4> {Track ? "On Track To Graduate" : " "}</h4>
+          <h4> {Track ? <strong>On Track To Graduate</strong> : <strong> </strong>}</h4>
         </div>
       </li>
     </div>

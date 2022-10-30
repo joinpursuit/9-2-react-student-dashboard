@@ -1,5 +1,3 @@
-import { useState } from "react";
-import ShowMore from "./ShowMore";
 import StudentCard from "./StudentCard";
 function DisplayAllStudents({
   changeCohortDisplay,
