@@ -7,7 +7,6 @@ export default function CohortList({
   filterStudentsByCohort,
 }) {
   const [cohortCodes, setCohortCodes] = useState([]);
-  const [activeElement, setActiveElement] = useState("All Students");
   const ul = useRef(null);
 
   function handleClick(e, cohort) {
@@ -49,7 +48,6 @@ export default function CohortList({
   }, [students]);
 
   useEffect(() => {
-    console.log("my ul", ul.current.children);
     const lis = ul.current.children;
     if (title === "Graduating Students" || title === "Search Results") {
       for (let li of lis) {

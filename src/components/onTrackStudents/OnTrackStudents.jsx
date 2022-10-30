@@ -29,7 +29,14 @@ export default function OnTrackStudents({
         setTitle("All Students");
       }
     }
-  }, [showGradStudents, gradStudents, setFilteredStudents, students, setTitle]);
+  }, [
+    showGradStudents,
+    title,
+    gradStudents,
+    setFilteredStudents,
+    students,
+    setTitle,
+  ]);
 
   useEffect(() => {
     if (title !== "Graduating Students") {
