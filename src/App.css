@@ -69,7 +69,7 @@ main {
   
   .back-to-top {
       position: fixed;
-      right:2rem;
+      left:2rem;
       bottom:2rem;
   }
 
