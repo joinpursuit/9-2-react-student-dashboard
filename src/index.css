@@ -1,24 +1,36 @@
 
 body {
-background-image: url ("src/components/wall-light.jpeg");
+background-color: rgba(0, 0, 0, 0.359);
   
 }   
 
+.studentDetails {
+    background-color: rgb(255, 255, 255);
+    /* border-radius: 100px; */
+}
 
+.studentList {
+    display: contents; 
+   
+    
+}
 
+.studentList h3 {
+    color:rgb(70, 114, 161)
+}
 
 
 header {
-    background-color: rgb(151, 119, 165);
+    background-color: rgb(70, 114, 161);
 }
 
 .dashboardHeader {
     /* display: grid;
     grid-template-columns:  2fr 5fr; */
     height: 20px;
-    color: rgb(6, 6, 6);
+    color: rgb(243, 243, 243);
     text-align: center;
-    font-family: system-ui;
+    font-family: serif;
    
 }
 
@@ -27,17 +39,18 @@ h3 {
 }
 
 li {
-    border: solid 3px rgb(153, 125, 165);
+    border: solid 2px rgb(255, 255, 255);
  list-style-type: none;
  width: 170%;
  text-align: center;
- box-shadow:   10px 5px 10px rgb(154, 90, 181);
+ box-shadow:   10px 5px 10px  rgb(70, 114, 161);
+ /* border-radius: 100px; */
  
  
 }
 
 ul :hover {
-background-color: rgb(86, 83, 83);
+background-color: rgb(255, 255, 255);
 transition: 1s;
 }
 .cohortList {
@@ -49,11 +62,11 @@ grid-template-rows: repeat(7,1fr)
 .cohortList button {
     border: none;
    background-color: white;
-   border-bottom: solid 1px rgb(154, 90, 181);
+   border-bottom: solid 1px rgb(255, 255, 255);
    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
    font-size: 16px;
    height: 80px;
-   box-shadow:   10px 5px 10px rgb(154, 90, 181);
+   box-shadow:   10px 5px 10px rgb(70, 114, 161);
 
 }
 
@@ -84,7 +97,7 @@ section {
 
 
 .highlights {
-    color: rgb(154, 90, 181);
+    color: rgb(70, 114, 161);
 }
 
 button {
@@ -105,14 +118,44 @@ button {
 .showMore {
     border: none;
     background-color: white;
-    border-bottom: solid 1px rgb(133, 70, 133);
+    border-bottom: solid 1px rgb(243, 243, 243);
+    
     
 }
 
 .onTrack {
-   color: rgb(133, 70, 133);
+    color : white;
    float: right;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
  
 }
 
-img {margin-top: 5px;}
+img {margin-top: 5px;
+}
+
+h5 {
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+.formSection {
+
+    display: block;
+ 
+}
+
+input {
+    background-color:rgb(70, 114, 161); 
+    resize: vertical;
+
+}
+
+.formButton {
+    border: none;
+background-color: white;
+border-bottom: solid 1px rgb(70, 114, 161);
+}
+
+.notes {
+display: initial;
+}

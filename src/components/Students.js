@@ -1,10 +1,12 @@
 import { useState } from "react";
 import data from "../data/data.json";
 import StudentDetails from "./StudentDetails";
-export default function Students({ cohort, setCohort}) {
+export default function Students({ cohort, setCohort }) {
   const [students, setStudents] = useState(data);
-  const [showMore, setShowMore] = useState(false);
-  let totalStudents = students.length;
+
+  let totalStudents = cohort
+    ? students.filter((fellow) => fellow.cohort.cohortCode === cohort).length
+    : 250;
 
   const newBirthday = (date) => {
     const dob = new Date(date);
@@ -15,13 +17,7 @@ export default function Students({ cohort, setCohort}) {
     // console.log(new Date("2/3/1979"));
   };
 
-  const toggleStudentDetails = (e) => {
-e.preventDefault()
-
-  }
- 
-
-  console.log(students);
+  // console.log(students);
   return (
     <>
       {cohort ? (
@@ -47,24 +43,16 @@ e.preventDefault()
                     ) : null}
                     {/* <img src={fellow.profilePhoto} width="100" height="100" /> */}
 
-                    <p>{fellow.names.preferredName} {fellow.names.surname}</p>
+                    <p>
+                      {fellow.names.preferredName} {fellow.names.surname}
+                    </p>
 
                     <p>{fellow.username}</p>
                     <p>
                       <span className="highlights">Birthday:</span>{" "}
                       {newBirthday(fellow.dob)}
                     </p>
-                    <div>
-                      <button
-                        type="button"
-                        className="showMore"
-                        onClick={(e) => toggleStudentDetails(setShowMore(!showMore))}>
-                        {!showMore  ? "show more... ": "show less..."}
-                              </button>
-               
-                       
-                     
-                    </div>
+                    <StudentDetails fellow={fellow} />
                   </li>
                 );
               })}
@@ -90,23 +78,16 @@ e.preventDefault()
                   fellow.codewars.current.total ? (
                     <p className="onTrack">On Track to Graduate</p>
                   ) : null}
-                  <p>{fellow.names.preferredName} {fellow.names.surname}</p>
+                  <p>
+                    {fellow.names.preferredName} {fellow.names.surname}
+                  </p>
                   <p>{fellow.username}</p>
                   <p>
                     <span className="highlights">Birthday: </span>
                     {newBirthday(fellow.dob)}
                   </p>
-
-                  <button
-                        type="button"
-                        className="showMore"
-                        onClick={(e) => toggleStudentDetails(setShowMore(!showMore))}>
-                        {!showMore  ? "show more... ": "show less..."}
-                              </button>
-                              {showMore  && <StudentDetails data={data} />}
-
+                  <StudentDetails fellow={fellow} />
                 </li>
-        
               );
             })}
           </ul>
