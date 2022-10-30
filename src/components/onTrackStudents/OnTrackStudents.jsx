@@ -4,6 +4,7 @@ import "./OnTrackStudents.css";
 export default function OnTrackStudents({
   students,
   setFilteredStudents,
+  title,
   setTitle,
 }) {
   const [showGradStudents, setShowGradStudents] = useState(false);
@@ -23,10 +24,18 @@ export default function OnTrackStudents({
       setFilteredStudents(gradStudents);
       setTitle("Graduating Students");
     } else {
-      setFilteredStudents(students);
-      setTitle("All Students");
+      if (title === "Graduating Students") {
+        setFilteredStudents(students);
+        setTitle("All Students");
+      }
     }
   }, [showGradStudents, gradStudents, setFilteredStudents, students, setTitle]);
+
+  useEffect(() => {
+    if (title !== "Graduating Students") {
+      setShowGradStudents(false);
+    }
+  }, [title]);
 
   return (
     <div className="show-on-track-students">

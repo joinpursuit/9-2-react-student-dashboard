@@ -42,3 +42,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
+.title {
+  color: #7f9fdf;
+}

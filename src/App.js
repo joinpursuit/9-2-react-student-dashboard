@@ -56,6 +56,7 @@ function App() {
       <div className="search-bar">
         <SearchByName searchStudent={searchStudents} />
         <OnTrackStudents
+          title={title}
           setTitle={setTitle}
           students={students}
           setFilteredStudents={setFilteredStudents}
