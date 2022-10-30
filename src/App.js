@@ -1,9 +1,19 @@
+import "./index.css";
+import Header from "./components/Header";
+import Students from "./components/Students";
+import CohortListings from "./components/CohortListings";
+import { useState } from "react";
+import StudentDetails from "./components/StudentDetails";
 
 function App() {
+  const [cohort, setCohort] = useState("");
+
   return (
-    <div>
-      <h1>Student Dashboard</h1>
-    </div>
+    <>
+      <Header />
+      <CohortListings cohort={cohort} setCohort={setCohort} />
+      <Students cohort={cohort} setCohort={setCohort} />
+    </>
   );
 }
 
