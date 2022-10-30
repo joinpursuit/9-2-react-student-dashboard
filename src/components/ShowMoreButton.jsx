@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import data from "../data/data";
 import CommentsSection from "./CommentsSection.jsx";
-import PercentColor from "./PercentColor";
 
 function ShowMoreButton({ props }) {
   const [state, setState] = useState("Show More...");
@@ -32,6 +31,11 @@ function ShowMoreButton({ props }) {
     }
   }
 
+  let goalPercent = (
+    (info.codewars.current.total / info.codewars.goal.total) *
+    100
+  ).toFixed(2);
+
   return (
     <div>
       <button id="show-more-btn" onClick={handleSetState}>
@@ -54,16 +58,27 @@ function ShowMoreButton({ props }) {
               <h6>
                 Goal:<span id="tally">{info.codewars.goal.total}</span>{" "}
               </h6>
-              <h6>
-                Percentage Of Goal Achieved:{" "}
-                <div id="tally-percent">
-                  {(
-                    (info.codewars.current.total / info.codewars.goal.total) *
-                    100
-                  ).toFixed(2)}{" "}
-                  %
-                </div>
-              </h6>
+
+              <div id="tally-goalPercent">
+                {goalPercent >= 100 && (
+                  <h6>
+                    <span>Percent of goal achieved: </span>
+                    <span style={{ color: "green" }}>{goalPercent}%</span>
+                  </h6>
+                )}
+                {goalPercent > 50 && goalPercent < 100 && (
+                  <h6>
+                    <span>Percent of goal achieved: </span>
+                    <span className="yellow">{goalPercent}%</span>
+                  </h6>
+                )}
+                {goalPercent <= 50 && (
+                  <h6>
+                    <span>Percent of goal achieved: </span>
+                    <span style={{ color: "red" }}>{goalPercent}%</span>
+                  </h6>
+                )}
+              </div>
             </li>
             <li className="scores">
               <h4>Scores </h4>

@@ -1,5 +1,6 @@
 import React from "react";
 import ShowMoreButton from "./ShowMoreButton";
+import data from "../data/data";
 
 function ProfileList({ data }) {
   const onTrack = <h5 id="onTrack">On Track To Graduate</h5>;
@@ -17,7 +18,6 @@ function ProfileList({ data }) {
               {e.names.preferredName} {e.names.middleName[0] + "."}{" "}
               {e.names.surname}
             </h2>
-
             <h5 id="element">
               Cohort:{" "}
               {e.cohort.cohortCode.split("").slice(0, -4).join("") +
@@ -43,5 +43,4 @@ function ProfileList({ data }) {
     </div>
   );
 }
-
 export default ProfileList;

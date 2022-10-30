@@ -2,16 +2,18 @@ import React from "react";
 
 function Cohort({ setCohort }) {
   function HandleState(e) {
-    setCohort(e.target.innerText.split(" ").join(""));
     const elementTitle = document.getElementById("cohort-title");
     elementTitle.innerText = e.target.innerText;
+    e.target.innerText === "All Students"
+      ? setCohort(e.target.innerText)
+      : setCohort(e.target.innerText.split(" ").join(""));
   }
 
   return (
     <div className="cohort-container">
       <h3 className="cohort-title">Choose a Class by Start Date</h3>
       <ul className="cohort-list">
-        <li>All Students</li> <hr />
+        <li onClick={HandleState}>All Students</li> <hr />
         <li onClick={HandleState}>Winter 2026</li>
         <hr />
         <li onClick={HandleState}>Fall 2026</li>

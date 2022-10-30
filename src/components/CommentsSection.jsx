@@ -2,9 +2,7 @@ import React from "react";
 import data from "../data/data";
 
 function CommentsSection() {
-  // function addNewComment() {
-  //   return <li>{comment.innerhtml}</li>;
-  // }
+
   return (
     <div className="one-on-one">
       <u>

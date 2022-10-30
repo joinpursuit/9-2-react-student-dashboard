@@ -8,19 +8,9 @@ import Cohort from "./components/Cohort";
 function App() {
   const [cohort, setCohort] = useState("All Students");
 
-  // function filterProfileList(strParam) {
-  //   if (strParam === "All Students") {
-  //     return <ProfileList data={data} />;
-  //   } else {
-  //     return data.filter((e) => {
-  //       return e.cohort.cohortCode === strParam;
-  //     });
-  //   }
-  // }
-
-  function filterProfileList(strParam) {
+  function filterProfileList(strCohort) {
     return data.filter((e) => {
-      return e.cohort.cohortCode === strParam;
+      return e.cohort.cohortCode === strCohort;
     });
   }
 
@@ -40,7 +30,11 @@ function App() {
           </div>
 
           <div className="profileList">
-            <ProfileList data={filterProfileList(cohort)} />
+            {cohort === "All Students" ? (
+              <ProfileList data={data} />
+            ) : (
+              <ProfileList data={filterProfileList(cohort)} />
+            )}
           </div>
         </div>
       </main>
