@@ -3,7 +3,7 @@ import { useState } from "react";
 import data from "../data/data";
 import CommentsSection from "./CommentsSection.jsx";
 
-function ShowMoreButton({ props }) {
+function ShowMoreButton({ props, addNewNote }) {
   const [state, setState] = useState("Show More...");
 
   function handleSetState() {
@@ -21,11 +21,11 @@ function ShowMoreButton({ props }) {
 
   function findComment(data) {
     if (data.notes.length === 0) {
-      return <li>no comments added yet..</li>;
+      return <li id="no-comment">no comments added yet..</li>;
     } else {
       return (
-        <li>
-          {data.notes[0].commenter} Left A Comment: "{data.notes[0].comment}"
+        <li id="added-comment">
+          {data.notes[0].commenter} Said: "{data.notes[0].comment}"
         </li>
       );
     }
@@ -47,78 +47,78 @@ function ShowMoreButton({ props }) {
             <li id="codewars">
               <h4>CodeWars</h4>
               <hr />
-              <h6>
+              <h5>
                 Total Current Score:{" "}
                 <span id="tally">{info.codewars.current.total}</span>
-              </h6>
-              <h6>
+              </h5>
+              <h5>
                 Last Week Score:{" "}
                 <span id="tally">{info.codewars.current.lastWeek}</span>
-              </h6>
-              <h6>
+              </h5>
+              <h5>
                 Goal:<span id="tally">{info.codewars.goal.total}</span>{" "}
-              </h6>
+              </h5>
 
               <div id="tally-goalPercent">
                 {goalPercent >= 100 && (
-                  <h6>
+                  <h5>
                     <span>Percent of goal achieved: </span>
                     <span style={{ color: "green" }}>{goalPercent}%</span>
-                  </h6>
+                  </h5>
                 )}
                 {goalPercent > 50 && goalPercent < 100 && (
-                  <h6>
+                  <h5>
                     <span>Percent of goal achieved: </span>
                     <span className="yellow">{goalPercent}%</span>
-                  </h6>
+                  </h5>
                 )}
                 {goalPercent <= 50 && (
-                  <h6>
+                  <h5>
                     <span>Percent of goal achieved: </span>
                     <span style={{ color: "red" }}>{goalPercent}%</span>
-                  </h6>
+                  </h5>
                 )}
               </div>
             </li>
             <li className="scores">
               <h4>Scores </h4>
               <hr />
-              <h6>
+              <h5>
                 Assignments:{" "}
                 <span id="tally">
                   {(info.cohort.scores.assignments * 100).toFixed(1)} %
                 </span>
-              </h6>
-              <h6>
+              </h5>
+              <h5>
                 Projects:{" "}
                 <span id="tally">
                   {(info.cohort.scores.projects * 100).toFixed(1)} %
                 </span>
-              </h6>
-              <h6>
+              </h5>
+              <h5>
                 Assessments:{" "}
                 <span id="tally">
                   {(info.cohort.scores.assessments * 100).toFixed(1)} %
                 </span>
-              </h6>
+              </h5>
             </li>
             <li className="certs">
               <h4>Certifications </h4>
               <hr />
 
-              <h6>Resume: {info.certifications.resume ? trueCheck : falseX}</h6>
-              <h6>
+              <h5>Resume: {info.certifications.resume ? trueCheck : falseX}</h5>
+              <h5>
                 Linkedin: {info.certifications.linkedin ? trueCheck : falseX}
-              </h6>
-              <h6>Github: {info.certifications.github ? trueCheck : falseX}</h6>
-              <h6>
+              </h5>
+              <h5>Github: {info.certifications.github ? trueCheck : falseX}</h5>
+              <h5>
                 MockInterview:{" "}
                 {info.certifications.mockInterview ? trueCheck : falseX}
-              </h6>
+              </h5>
             </li>
           </ul>
-          <CommentsSection />
-          <ul>
+          <CommentsSection students={props} addNewNote={addNewNote} />
+          <ul id="comment-list">
             <h5 className="comments">Comments</h5>
             <hr />
             {findComment(info)}

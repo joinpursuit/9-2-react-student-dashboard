@@ -57,9 +57,9 @@
   color: rgb(190, 82, 5);
 }
 
-.certs h6,
-.scores h6,
-#codewars h6 {
+.certs h5,
+.scores h5,
+#codewars h5 {
   margin: 15px;
 }
 
@@ -75,17 +75,6 @@
   text-decoration-color: rgb(49, 165, 14);
 }
 
-.yellow {
-  color: yellow;
-}
-
-.green {
-  color: rgb(93, 155, 0);
-}
-
-.red {
-  color: rgb(136, 0, 0);
-}
 
 .profileList {
   color: rgb(167, 207, 6);

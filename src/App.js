@@ -8,8 +8,18 @@ import Cohort from "./components/Cohort";
 function App() {
   const [cohort, setCohort] = useState("All Students");
 
+  const [students, setStudents] = useState(data);
+
+  function addNewNote(studentId, comment, commentator) {
+    let filteredStudent = students.find((student) => {
+      return studentId === student.id;
+    });
+    filteredStudent.notes.push({ commenter: commentator, comment });
+    setStudents([...students]);
+  }
+
   function filterProfileList(strCohort) {
-    return data.filter((e) => {
+    return students.filter((e) => {
       return e.cohort.cohortCode === strCohort;
     });
   }
@@ -31,9 +41,12 @@ function App() {
 
           <div className="profileList">
             {cohort === "All Students" ? (
-              <ProfileList data={data} />
+              <ProfileList data={students} addNewNote={addNewNote} />
             ) : (
-              <ProfileList data={filterProfileList(cohort)} />
+              <ProfileList
+                data={filterProfileList(cohort)}
+                addNewNote={addNewNote}
+              />
             )}
           </div>
         </div>

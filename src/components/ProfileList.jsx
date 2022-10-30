@@ -1,8 +1,7 @@
 import React from "react";
 import ShowMoreButton from "./ShowMoreButton";
-import data from "../data/data";
 
-function ProfileList({ data }) {
+function ProfileList({ data, addNewNote }) {
   const onTrack = <h5 id="onTrack">On Track To Graduate</h5>;
   const notOnTrack = <h5 id="not-on-track"> NOT On Track To Graduate</h5>;
 
@@ -36,7 +35,7 @@ function ProfileList({ data }) {
               ? onTrack
               : notOnTrack}
 
-            <ShowMoreButton props={e.id} />
+            <ShowMoreButton props={e.id} addNewNote={addNewNote} />
           </div>
         );
       })}
