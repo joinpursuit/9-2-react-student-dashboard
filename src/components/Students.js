@@ -41,7 +41,7 @@ export default function Students({ cohort, setCohort }) {
                     fellow.codewars.current.total ? (
                       <p className="onTrack">On Track to Graduate</p>
                     ) : null}
-                    {/* <img src={fellow.profilePhoto} width="100" height="100" /> */}
+                    <img src={fellow.profilePhoto} width="100" height="100" />
 
                     <p>
                       {fellow.names.preferredName} {fellow.names.surname}

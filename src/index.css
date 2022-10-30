@@ -1,6 +1,6 @@
 
 body {
-background-color: rgba(0, 0, 0, 0.359);
+background-image: url(/src/images/WallLight.jpeg);
   
 }   
 
@@ -12,30 +12,29 @@ background-color: rgba(0, 0, 0, 0.359);
 .studentList {
     display: contents; 
    
-    
 }
 
 .studentList h3 {
-    color:rgb(70, 114, 161)
+    color:rgb(17, 18, 19)
 }
-
 
 header {
     background-color: rgb(70, 114, 161);
+    opacity: 20%;
 }
 
 .dashboardHeader {
-    /* display: grid;
-    grid-template-columns:  2fr 5fr; */
-    height: 20px;
+    height: 50px;
     color: rgb(243, 243, 243);
     text-align: center;
     font-family: serif;
-   
+     
 }
 
 h3 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: antiquewhite;
+    letter-spacing: 1px;
 }
 
 li {
@@ -44,6 +43,7 @@ li {
  width: 170%;
  text-align: center;
  box-shadow:   10px 5px 10px  rgb(70, 114, 161);
+ color: rgb(246, 166, 63);
  /* border-radius: 100px; */
  
  
@@ -76,9 +76,6 @@ grid-template-rows: repeat(7,1fr)
   
 }
 
-
-
-
 section {
 
   height: 20%;
@@ -92,12 +89,8 @@ section {
   
 }
 
-
-   
-
-
 .highlights {
-    color: rgb(70, 114, 161);
+    color: antiquewhite
 }
 
 button {
@@ -112,15 +105,10 @@ button {
     font-size: 17px;
 }
 
-
-
-
 .showMore {
     border: none;
     background-color: white;
-    border-bottom: solid 1px rgb(243, 243, 243);
-    
-    
+    border-bottom: solid 1px rgb(243, 243, 243); 
 }
 
 .onTrack {
@@ -136,6 +124,7 @@ img {margin-top: 5px;
 h5 {
     font-size: 20px;
     font-family: sans-serif;
+    color: antiquewhite;
 }
 
 .formSection {
@@ -159,3 +148,4 @@ border-bottom: solid 1px rgb(70, 114, 161);
 .notes {
 display: initial;
 }
+

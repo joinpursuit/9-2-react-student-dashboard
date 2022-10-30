@@ -23,7 +23,7 @@
           <label id="commenter">Commenter Name: </label>
           {/* <input type="text" id="commenter"></input> */}
           <input type="text" id="commenter"
-            value={commenter}
+            value={commenter} 
             onChange={(e) => setCommenter(e.target.value)}
           >
 
