@@ -6,9 +6,6 @@ import { useState } from "react";
 import StudentDetails from "./components/StudentDetails";
 
 function App() {
-  /**state is set to false so that when a button is clicked in cohortListings
-   * state will be toggled to true.
-   */
   const [cohort, setCohort] = useState("");
 
   return (
@@ -16,10 +13,8 @@ function App() {
       <Header />
       <CohortListings cohort={cohort} setCohort={setCohort} />
       <Students cohort={cohort} setCohort={setCohort} />
-  
     </>
   );
 }
 
 export default App;
-

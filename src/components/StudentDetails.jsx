@@ -2,17 +2,7 @@ import { useState } from "react";
 import Form from "./Form";
 export default function StudentDetails({ fellow }) {
   const [showMore, setShowMore] = useState(false);
-  const [form, setForm] = useState(false)
-//   const toggleStudentDetails = (e) => {
-//     e.preventDefault();
-//   };
-
-
-//   const submitComment = (e) => {
-//     e.preventDefault();
-//     setForm(!form)
-
-//   }
+  const [form, setForm] = useState(false);
 
   return (
     <div>
@@ -32,8 +22,13 @@ export default function StudentDetails({ fellow }) {
               <p>{fellow.codewars.current.total}</p>
               <p>{fellow.codewars.current.lastWeek}</p>
               <p>{fellow.codewars.goal.total}</p>
-              <p>Percent of Goal Achieved:{(fellow.codewars.current.total / fellow.codewars.goal.total).toFixed(2) *100}%
-         </p>
+              <p>
+                Percent of Goal Achieved:
+                {(
+                  fellow.codewars.current.total / fellow.codewars.goal.total
+                ).toFixed(2) * 100}
+                %
+              </p>
               <h3>Scores</h3>
               <p>Assignments: {fellow.cohort.scores.assignments * 100}%</p>
               <p>Projects: {fellow.cohort.scores.projects * 100}%</p>
@@ -48,7 +43,7 @@ export default function StudentDetails({ fellow }) {
               <p>Github: {fellow.certifications.github ? "✅ " : "❌"} </p>
             </li>
           </ul>
-            <Form  fellow={fellow}/>
+          <Form fellow={fellow} />
         </div>
       ) : (
         ""

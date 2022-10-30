@@ -60,8 +60,6 @@ export default function Students({ cohort, setCohort }) {
         </section>
       ) : (
         <section>
-          <h3>All Students</h3>
-
           <h5>
             Total Students: <span className="highlights">{totalStudents}</span>
           </h5>
@@ -70,7 +68,7 @@ export default function Students({ cohort, setCohort }) {
             {students.map((fellow) => {
               return (
                 <li key={fellow.id}>
-                  {/* <img src={fellow.profilePhoto} width="90" height="90" />  */}
+                  <img src={fellow.profilePhoto} width="90" height="90" />
                   {fellow.certifications.resume &&
                   fellow.certifications.linkedin &&
                   fellow.certifications.github &&
@@ -93,7 +91,6 @@ export default function Students({ cohort, setCohort }) {
           </ul>
         </section>
       )}
-      {/* <h1>{bool? hello : goodbye}</h1> */}
     </>
   );
 }
