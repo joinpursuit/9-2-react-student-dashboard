@@ -177,3 +177,23 @@ Consider the following process as a baseline for working through this project:
 1. Once you have information displayed on the page, pick one component to work on to make more interactive.
 
 Continue to slowly iterate, making small changes to complete each feature. Commit often, so that you can always undo your changes if you break something big.
+<!-- 
+  {/* <div key={student.id} className="studentCard">
+      <span className="studentProfile">
+        <img
+          alt={student.id}
+          src={student.profilePhoto}
+          style={{ width: "100px" }}
+        />
+      </span>
+      <h3 className="studentName">{student.names.preferredName} {student.names.middleName} {student.names.surname}</h3>
+      <h5 className="studentUser">{student.username}</h5> 
+      <h5 className="studentDOB">Birthday: {formattedDate(student.dob)}</h5>
+      <h6>{onTrack(student)}</h6>
+      <span>
+        <a href="null" onClick={(e) => showMore(e)}>
+          {displayInfo ? "Show Less..." : "Show More..."}
+        </a>
+        <span>{displayInfo ? <span>{studentCard(student)}</span> : null}</span>
+      </span>
+    </div> */ -->
