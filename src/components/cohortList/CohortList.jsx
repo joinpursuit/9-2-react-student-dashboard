@@ -53,6 +53,8 @@ export default function CohortList({
       for (let li of lis) {
         li.classList.remove("active");
       }
+    } else if (title === "All Students") {
+      lis[0].classList.add("active");
     }
   }, [title]);
 
