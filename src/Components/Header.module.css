@@ -1,0 +1,11 @@
+.header {
+    padding: 2rem;
+    background-color: dodgerblue;
+    grid-column: 1/3;
+}
+
+.header h1 {
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+}
