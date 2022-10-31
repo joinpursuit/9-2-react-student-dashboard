@@ -1,0 +1,85 @@
+main {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(2, auto);
+  }
+  
+  h1 {
+    display: grid;
+    grid-column: 1/9;
+    grid-row: 1/2;
+  
+    text-align: Center;
+    font-size: 50px;
+    margin: auto;
+    width: 100%;
+    height: 150px;
+    background-color: rgb(26, 0, 128);
+    color: white;
+  }
+  
+  .FullList {
+    display: grid;
+    grid-column: 4/9;
+    grid-row: 2/3;
+    width: auto;
+  }
+  
+  .StudentList {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-column: 2/8;
+    text-align: left;
+    border: 3px solid rgb(26, 0, 128);
+    margin: 20px;
+    padding: 15px;
+  }
+  
+  .Cohortlist {
+    grid-column: 1/4;
+    text-align: left;
+    font-size: 30px;
+  
+  }
+  
+  .Cohortlist li {
+      text-decoration-color: rgb(26, 0, 128);
+      list-style: none;
+  }
+  
+  .hoverColor:hover {
+      color:yellowgreen;
+  
+  }
+  
+  /* .hoverColor {   
+      border-bottom: 2px solid green;
+  } */
+  
+  h2 {
+    font-size: 30px;
+  }
+  
+  .StudentListText {
+    text-align: left;
+    padding: 20px;
+    margin: auto;
+  }
+  
+  
+  .back-to-top {
+      position: fixed;
+      left:2rem;
+      bottom:2rem;
+  }
+
+  hr {
+    color: black;
+    border-style: dotted;
+  }
+
+  nav h1 {    
+    font-family: Arial ;
+    font-size: 32px;
+    color: white;
+}
