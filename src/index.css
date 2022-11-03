@@ -1,0 +1,247 @@
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+  background-color: rgb(57, 135, 199);
+  text-align: center;
+  color: white;
+  font-size: x-large;
+  text-shadow: 6px 6px rgb(11, 11, 26);
+  border: 9px solid rgb(32, 128, 231);
+  letter-spacing: 4px;
+}
+
+.cohorts::after {
+  content: "";
+  display: block;
+  width: 347px;
+  margin-left: 91px;
+  border-bottom: 2px solid #000000;
+}
+
+h1.title,
+h3 {
+  text-align: right;
+  padding-right: 50px;
+}
+
+h1.title {
+  text-shadow: 5px -2px rgb(129, 129, 136);
+}
+
+.student-count {
+  color: rgb(57, 135, 199);
+  text-align: center;
+  font-style: italic;
+  text-decoration: dotted underline black;
+}
+
+.student-name {
+  background-color: rgb(57, 135, 199);
+  color: white;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1.5fr 2.5fr;
+  column-gap: 20px;
+}
+
+#searchbar:hover {
+  background-color: rgb(182, 185, 187);
+}
+
+.right-side :nth-child(2) {
+  background-color: rgb(240, 240, 240);
+}
+
+.cohorts {
+  text-align: center;
+}
+
+hr {
+  border: 0px;
+}
+
+.student-card {
+  border: 1px solid black;
+  display: flex;
+  column-gap: 30px;
+}
+
+img {
+  height: 150px;
+  width: 150px;
+  border: 5px solid rgb(0, 0, 0);
+}
+
+.show-hide,
+.birthday,
+.cohorts {
+  color: rgb(57, 135, 199);
+}
+
+.show-hide {
+  text-decoration: underline;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.photo {
+  padding: 40px;
+}
+
+.cohort-list {
+  list-style: none;
+  font-size: xx-large;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px 0 0 10px;
+}
+
+#all-students,
+.title {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  background: linear-gradient(
+    40deg,
+    rgb(225, 217, 200),
+    rgb(32, 128, 231),
+    rgb(225, 217, 200),
+    rgb(32, 128, 231)
+  );
+}
+
+.cohort-list:nth-child(even) {
+  background-color: rgb(225, 217, 200);
+  color: rgb(83, 84, 85);
+}
+
+.cohort-list:nth-child(odd) {
+  background-color: rgb(32, 128, 231);
+  color: rgb(185, 227, 243);
+}
+
+.cohort-list:hover {
+  color: rgb(168, 210, 62);
+}
+
+.on-track {
+  display: grid;
+  align-items: center;
+  color: green;
+}
+
+.green {
+  color: green;
+}
+
+.yellow {
+  color: yellow;
+  background-color: rgb(136, 136, 136);
+}
+
+.red {
+  color: red;
+}
+
+.top-details {
+  display: flex;
+  column-gap: 40px;
+  border-bottom: 1px solid black;
+}
+
+.note-button {
+  background-color: rgb(57, 135, 199);
+  color: white;
+  cursor: pointer;
+}
+
+.note-button:hover {
+  background-color: rgb(111, 108, 108);
+  color: black;
+}
+
+#form {
+  border: 1px solid black;
+  padding: 10px;
+  background-color: rgb(215, 221, 227);
+  border-radius: 8px;
+}
+
+section > h4 {
+  text-decoration: underline;
+}
+
+.green-button {
+  border-radius: 10px;
+  color: rgb(70, 156, 43);
+  background-color: white;
+  margin-left: 40px;
+}
+
+.green-button:hover,
+.red-button:hover {
+  cursor: alias;
+}
+
+.red-button {
+  border-radius: 10px;
+  color: rgb(255, 0, 0);
+  background-color: white;
+  margin-left: 40px;
+}
+
+.codewars {
+  color: rgb(21, 127, 83);
+}
+
+.scores {
+  color: rgb(218, 160, 35);
+}
+
+.certifications {
+  color: rgb(92, 20, 95);
+}
+
+#commenter:hover,
+#comment:hover {
+  background-color: rgb(180, 205, 212);
+}
+
+#commenter,
+#comment {
+  background-color: white;
+}
+
+.bird {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells-new.svg");
+  height: 60px;
+  will-change: background-position;
+  animation-name: fly-cycle;
+  animation-timing-function: steps(9);
+  animation-iteration-count: infinite;
+  animation-duration: 1.5s;
+}
+@keyframes fly-cycle {
+  100% {
+    background-position: 900px 0;
+  }
+}
+
+.student-dash:hover {
+  transform: translateX(-30rem);
+  animation: slide 900ms linear forwards;
+}
+
+@keyframes slide {
+  100% {
+    transform: translateY(0);
+  }
+}
