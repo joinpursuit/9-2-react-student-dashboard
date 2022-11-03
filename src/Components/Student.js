@@ -10,6 +10,8 @@ function StudentCard({
   codewars,
   cohort,
   notes,
+  id,
+  addNoteToStudent,
 }) {
   //this component handles data shown about each student prior to pressing the show more button
   const [showDetails, setShowDetails] = useState(false);
@@ -60,6 +62,8 @@ function StudentCard({
             certifications={certifications}
             notes={notes}
             showDetails={showDetails}
+            id={id}
+            addNoteToStudent={addNoteToStudent}
           />
         }
       </div>

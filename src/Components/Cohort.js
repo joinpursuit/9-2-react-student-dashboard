@@ -4,19 +4,20 @@ function GetAllCohorts({ data, setTitle, setStudentData }) {
   //this component is responsible for setting the student data and title by filtering data that is shown depending on which li is clicked. this also handles the order shown of the cohorts
   const [sortCohorts, setSortCohorts] = useState(false);
 
+  let ac = [
+    ...new Map(
+      data.map((student) => [student.cohort.cohortCode, student])
+    ).keys(),
+  ]
+  
+  let neworder =
+    `${ac[4]},${ac[3]},${ac[5]},${ac[0]},${ac[6]},${ac[2]},${ac[7]},${ac[1]}`.split(
+      ","
+    );
+
   let allCohorts = !sortCohorts
-    ? [
-        ...new Map(
-          data.map((student) => [student.cohort.cohortCode, student])
-        ).keys(),
-      ]
-        .sort((a, b) => b.slice(-4) - a.slice(-4))
-        .reverse()
-    : [
-        ...new Map(
-          data.map((student) => [student.cohort.cohortCode, student])
-        ).keys(),
-      ].sort((a, b) => b.slice(-4) - a.slice(-4));
+    ? neworder
+    : neworder.reverse()
 
   function handleClick(e) {
     if (e.target.id !== "all-students") {

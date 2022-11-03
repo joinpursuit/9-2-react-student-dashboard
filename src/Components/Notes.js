@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { v1 as generateUniqueID } from "uuid";
 
-function AddNotes({ noteLi, setNoteLi }) {
+function AddNotes({ noteLi, id, addNoteToStudent }) {
   //this handles the one on one section which includes the form and the ability to add a comment which shows as an li
   const [addComment, setAddComment] = useState({
     commenter: "",
@@ -9,12 +9,14 @@ function AddNotes({ noteLi, setNoteLi }) {
   });
 
   function handleComments(e) {
-    setAddComment({ ...addComment, [e.target.id]: e.target.value });
+    const newObj = { ...addComment };
+    newObj[e.target.id] = e.target.value;
+    setAddComment(newObj);
   }
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    setNoteLi([...noteLi, addComment]);
+    addNoteToStudent(id, addComment);
     setAddComment({ commenter: "", comment: "" });
   }
 

@@ -15,6 +15,14 @@ function App() {
   //setting state for the result of the search
   const [searchResult, setSearchResult] = useState(data);
 
+  //function to add note to a student and have it persists when cohorts are changed
+  function addNoteToStudent(id, obj) {
+    const newStudentsArr = [...studentData];
+    const index = studentData.findIndex((student) => student.id === id);
+    newStudentsArr[index].notes.push(obj);
+    setStudentData(newStudentsArr);
+  }
+
   return (
     <div>
       <Header />
@@ -34,7 +42,11 @@ function App() {
             setSearchResult={setSearchResult}
           />
           <div className="right-side">
-            <CohortsChange studentData={studentData} title={title} />
+            <CohortsChange
+              studentData={studentData}
+              title={title}
+              addNoteToStudent={addNoteToStudent}
+            />
           </div>
         </div>
       </div>

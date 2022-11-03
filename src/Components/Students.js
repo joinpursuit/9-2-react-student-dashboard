@@ -1,6 +1,6 @@
 import StudentCard from "./Student";
 
-function CohortsChange({ studentData, title }) {
+function CohortsChange({ studentData, title, addNoteToStudent }) {
   //this component handles all of the student data and will be adjusted as needed when the state for the student data and title is updated. this component maps thru all of the student data once and passing props down to its child component
   return (
     <div>
@@ -34,6 +34,7 @@ function CohortsChange({ studentData, title }) {
                 codewars={codewars}
                 cohort={cohort}
                 notes={notes}
+                addNoteToStudent={addNoteToStudent}
               />
             </div>
           );

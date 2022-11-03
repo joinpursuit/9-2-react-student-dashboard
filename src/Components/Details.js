@@ -7,9 +7,11 @@ function StudentDetails({
   certifications,
   notes,
   showDetails,
+  id,
+  addNoteToStudent,
 }) {
   //this component handles the student details for each student including the notes, therefore the state for the notes is set here. the default state for the notes comes from the notes data
-  const [noteLi, setNoteLi] = useState(notes);
+  const [noteLi] = useState(notes);
 
   let codewarsPercentage = (
     (codewars.current.total / codewars.goal.total) *
@@ -56,7 +58,12 @@ function StudentDetails({
           <p>GitHub:&nbsp;{certifications.github ? "✅" : "❌"}</p>
         </section>
       </div>
-      <AddNotes notes={notes} noteLi={noteLi} setNoteLi={setNoteLi} />
+      <AddNotes
+        addNoteToStudent={addNoteToStudent}
+        id={id}
+        notes={notes}
+        noteLi={noteLi}
+      />
     </div>
   ) : (
     ""
