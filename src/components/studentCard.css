@@ -1,0 +1,97 @@
+.student-card {
+  border: 2px solid rgb(110, 145, 110);
+  padding: 1.25rem;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  gap: 1rem;
+}
+
+.student-image {
+  width: 8rem;
+  border-radius: 8px;
+}
+
+.student-card__main-content {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.student-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.student-card__content-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.student-card__content-dob span {
+  color: rgb(110, 145, 110);
+}
+
+.toggle-more-info-button {
+  margin-left: 1.75rem;
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+  color: rgb(110, 145, 110);
+}
+
+.track-to-graduate-badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  
+}
+
+.track-to-graduate-badge__icon {
+  font-size: 1.5rem;
+}
+
+.track-to-graduate-badge__title {
+  font-size: 0.75rem;
+}
+
+.notes-container__title{
+  margin-bottom: 0.5rem;
+}
+
+.notes-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem;
+  border: 2px solid rgb(110, 145, 110)
+}
+
+.form-control {
+  width: 75%;
+  display: flex;
+  gap: 1rem;
+}
+
+.form-control input {
+  width: 35%;
+}
+
+.submit-button {
+  background-color: rgb(110, 145, 110);
+  color: white;
+  border-radius: 4px;
+  border: none;
+  width: max-content;
+  font-size: 0.75rem;
+  padding-inline: 0.55rem;
+  padding-block: 0.35rem;
+}
+
+.notes-list {
+  padding-left: 4rem;
+  margin-top: 0.5rem;
+  list-style-type: disc;
+}
