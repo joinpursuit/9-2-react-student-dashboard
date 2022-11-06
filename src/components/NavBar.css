@@ -1,0 +1,30 @@
+
+.list-Classes{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+.nav-bar {
+    padding-inline: 2rem;
+}
+
+.nav-bar__title {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.nav-bar__link-item {
+    border-bottom: 2px solid rgb(110, 145, 110);
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.nav-bar__link {
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    font-size: 1.15rem;
+}
