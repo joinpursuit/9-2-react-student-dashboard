@@ -6,7 +6,7 @@ import {useState} from 'react';
 export default function Test(){
     const [currStudent, setStudent] = useState(null);
     const [currSemester, setSemester] = useState('All Students');
-    const [currNotes, setNotes] = useState([]);
+    const [currNotes, setNotes] = useState({});
     const [toggle, setToggle] = useState(false);
     const [name, setName] = useState('');
     const [comment, setComment] = useState('');
@@ -37,11 +37,11 @@ export default function Test(){
 
 
     const currStudentlist = Students.filter(student => currSemester === "All Students" ? student: student.cohort.cohortCode === currSemester);
-   
+    // useEffect(() => {currStudentlist.forEach(student =>{console.log(currNotes); if (student.notes.length > 0) setNotes({...currNotes, [student.id]: student.notes})})}, [])
+    // currStudentlist.forEach(student =>{console.log(currNotes); if (student.notes.length > 0) setNotes({...currNotes, [student.id]: student.notes})})
 
     const studentCards = currStudentlist.map(student => {
         // console.log(student)
-        // setNotes([...currNotes, {notes: student.notes, id: student.id}]);
         
     function assignments(student){
         const {scores} = student;
@@ -79,22 +79,26 @@ export default function Test(){
         function graduate(student){
             const results = [student.certifications.resume, student.certifications.linkedin, student.certifications.github, student.certifications.mockInterview];
             if (results.every(result => (result === true) && student.codewars.current.total > 600)){
-                return { Graduate: "Ready to Graduate!", ready: 'ready'}
+                return { Graduate: "On track to Graduate!", ready: 'ready'}
             } else {
                 return {Graduate: "More work needed.", ready: 'notready'} 
             }
         }
 
 
-            function handleSubmit(event, student) {
+            function handleSubmit(event) {
                 event.preventDefault();
-            
+                let tmp = currNotes
+                tmp[currStudent.id].push({commenter: name, comment: comment})
+            setNotes({...tmp})
                 
         }
 
-            function addNotes(note){
-                setNotes([...currNotes, note]);
-            }
+            function addNotes(student, note){
+                
+                setNotes({...currNotes, [student]: note});
+            
+        }
 
         function notes(student){
             const {notes} = student;
@@ -112,7 +116,7 @@ export default function Test(){
             <div className="title"><span>{student.names.preferredName} {student.names.middleName.charAt(0)}. {student.names.surname}</span></div>
             <div className={graduate(student).ready}> <span>{graduate(student).Graduate}</span></div>
             <div><span className="textpadding"><strong>Birthday:</strong> {new Date(student.dob).toLocaleDateString('en-us', { year:"numeric", month:"long", day:"numeric"})}</span></div>
-            <div><span className="textpadding"><strong>Username: </strong>{student.username} </span><button className='expanddong' onClick={() => {setStudent({...student}); addNotes({id: student.id, notes: student.notes}); setToggle(!toggle); console.log(currStudent)}}> {toggle && currStudent && (currStudent.id === student.id) ? '-' : '+'} </button></div>
+            <div><span className="textpadding"><strong>Username: </strong>{student.username} </span><button className='expanddong' onClick={() => {setStudent({...student}); addNotes([student.id], student.notes); setToggle(!toggle); console.log(currNotes)}}> {toggle && currStudent && (currStudent.id === student.id) ? '-' : '+'} </button></div>
             
             {toggle && currStudent && (currStudent.id === student.id) ? 
             <>

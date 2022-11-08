@@ -35,9 +35,9 @@
 .heading {
     grid-column: span 10fr;
     grid-row: 0/.1;
-    width: 100%;
-    background-image: url('./logo.png');
-    background-size: 100px;
+    width: 90%;
+    background-image: url('');
+    background-size: 800px;
     background-repeat: repeat;
     background: #4844EC;
     padding-left: 10%;
@@ -153,6 +153,7 @@ li {
     border: 1px solid #1E1E1E;
     color: #1E1E1E;
     font-size: x-small;
+    font-weight: 900;
     width: 20px;
     height: 20px;
     border-radius: 100%;
@@ -193,7 +194,7 @@ input{
 
 form button{
     margin-top: 10px;
-    margin-left: 35%;
+    margin-left: 40%;
     background:#4844EC;
     padding: 5px;
     border-radius: 10px;
