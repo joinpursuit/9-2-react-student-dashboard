@@ -93,10 +93,6 @@ export default function Test(){
                     <Codewars codewars={student.codewars} />
                     <Assignments cohort={student.cohort} />
                     <Certifications certifications={student.certifications} />
-                    {/* <div>
-                    <div><h3>Certifications</h3></div>
-                        <ul>{certifications(student.certifications)}</ul>
-                    </div> */}
                 </div>
 
                 <div>
