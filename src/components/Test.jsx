@@ -1,5 +1,10 @@
 
 import Students from '../data/data.json';
+
+import Codewars from './Codewars'
+import Assignments from './Assignments'
+import Certifications from './Certifications'
+
 import {useState} from 'react';
 
 
@@ -37,44 +42,8 @@ export default function Test(){
 
 
     const currStudentlist = Students.filter(student => currSemester === "All Students" ? student: student.cohort.cohortCode === currSemester);
-    // useEffect(() => {currStudentlist.forEach(student =>{console.log(currNotes); if (student.notes.length > 0) setNotes({...currNotes, [student.id]: student.notes})})}, [])
-    // currStudentlist.forEach(student =>{console.log(currNotes); if (student.notes.length > 0) setNotes({...currNotes, [student.id]: student.notes})})
-
+   
     const studentCards = currStudentlist.map(student => {
-        // console.log(student)
-        
-    function assignments(student){
-        const {scores} = student;
-        return { assignments: "Assignments: "+ scores.assignments * 100 +'%', projects: "Projects: "+ scores.projects * 100+'%', assessments: "Assessments: "+ scores.assessments * 100+'%' }
-    }
-
-    function certifications(student){
-        const {linkedin, resume, github, mockInterview} = student;
-        return (<>
-            <li><strong>LinkedIn:</strong> {linkedin? "✅" : "❌"}</li>
-            <li><strong>Resume:</strong> {resume? "✅" : "❌"}</li>
-            <li><strong>Github: </strong>{github? "✅" : "❌"}</li>
-            <li><strong>Mock Interview: </strong>{mockInterview? "✅" : "❌"}</li>
-            </>
-        )
-    }
-
-    function codewars(codewars){
-        const {current} =  codewars;
-        const {goal} = codewars;
-        let total = ((current.total /goal.total) * 100).toFixed(2);
-        let color = ''
-        if (total < 50){
-            color = 'red';
-        } else if ((total >= 50) &&  (total < 100)){
-            color = 'yellow';
-        } else {
-            color = 'green';
-        }
-
-        return {color: color, totalpoints: "Current Total: " + current.total, lastWeekTotal: "Last Week Total: "  + current.lastWeek, goal: "Goal: " + goal.total,total:  total +"%", lastWeek: "Total Reached: " +(current.lastWeek /goal.lastWeek) * 100 +"%"}
-    }
-
 
         function graduate(student){
             const results = [student.certifications.resume, student.certifications.linkedin, student.certifications.github, student.certifications.mockInterview];
@@ -121,23 +90,13 @@ export default function Test(){
             {toggle && currStudent && (currStudent.id === student.id) ? 
             <>
                 <div className='statistics'>
-                    <div>
-                        <div><h3>Codewars</h3></div>
-                        <div>{codewars(student.codewars).totalpoints}</div>
-                        <div>{codewars(student.codewars).lastWeekTotal}</div>
-                        <div>{codewars(student.codewars).goal}</div>
-                        <div>Total Reached: <span className={codewars(student.codewars).color}>{codewars(student.codewars).total}</span></div>
-                    </div>
-                    <div>
-                        <div><h3>Assignments</h3></div>
-                        <div>{assignments(student.cohort).assignments}</div>
-                        <div>{assignments(student.cohort).projects}</div>
-                        <div>{assignments(student.cohort).assessments}</div>
-                    </div>
-                    <div>
+                    <Codewars codewars={student.codewars} />
+                    <Assignments cohort={student.cohort} />
+                    <Certifications certifications={student.certifications} />
+                    {/* <div>
                     <div><h3>Certifications</h3></div>
                         <ul>{certifications(student.certifications)}</ul>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div>
