@@ -75,17 +75,17 @@ export default function Test(){
                 return (<ul> {notes.map(note => <li><strong>{note.commenter}: </strong>{note.comment}</li>)}</ul>)
             }
                 else{
-                    return <div>No notes found.</div>
+                    return <ul><li>No notes found.</li></ul>
                 }
             }
 
         return (
         <div className='student' key={student.id}>
             <div className='photo'><img src={student.profilePhoto} alt={student.id} /></div>
-            <div className="title"><span>{student.names.preferredName} {student.names.middleName.charAt(0)}. {student.names.surname}</span></div>
-            <div className={graduate(student).ready}> <span>{graduate(student).Graduate}</span></div>
+            <div className="title"><em><span>{student.names.preferredName} {student.names.middleName.charAt(0)}. {student.names.surname}</span></em></div>
+            <div className={graduate(student).ready}> <em><span>{graduate(student).Graduate}</span></em></div>
             <div><span className="textpadding"><strong>Birthday:</strong> {new Date(student.dob).toLocaleDateString('en-us', { year:"numeric", month:"long", day:"numeric"})}</span></div>
-            <div><span className="textpadding"><strong>Username: </strong>{student.username} </span><button className='expanddong' onClick={() => {setStudent({...student}); addNotes([student.id], student.notes); setToggle(!toggle); console.log(currNotes)}}> {toggle && currStudent && (currStudent.id === student.id) ? '-' : '+'} </button></div>
+            <div><span className="textpadding"><strong>Username: </strong>{student.username} </span><button className='expanddong right' onClick={() => {setStudent({...student}); addNotes([student.id], student.notes); setToggle(!toggle); console.log(currNotes)}}> {toggle && currStudent && (currStudent.id === student.id) ? <strong>-</strong> : <strong>+</strong>} </button></div>
             
             {toggle && currStudent && (currStudent.id === student.id) ? 
             <>
@@ -99,17 +99,17 @@ export default function Test(){
                     <div className='center'><form onSubmit={handleSubmit}>
                         
                         <label htmlFor='name'>Name</label>
-                        <input
+                        <span className='right'><input
                             id="name"
                             name="name"
                             type="text"
                             onChange={(event) => setName(event.target.value)}
-                        /> <br></br>
+                        /> </span><br></br>
                         <label htmlFor='comment'>Comment</label>
-                        <input id="comment" name="comment"
+                        <span className='right'><input id="comment" name="comment"
                             type="text"
                             onChange={(event) => setComment(event.target.value)}
-                        /><br></br>
+                        /></span><br></br>
                         <button type="submit">Submit</button>
                         </form>
                      </div>
