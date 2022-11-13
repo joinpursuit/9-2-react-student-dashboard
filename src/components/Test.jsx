@@ -1,9 +1,7 @@
 
 import Students from '../data/data.json';
 
-import Codewars from './Codewars'
-import Assignments from './Assignments'
-import Certifications from './Certifications'
+import Statistics from './Statistics';
 
 import {useState} from 'react';
 
@@ -12,7 +10,6 @@ export default function Test(){
     const [currStudent, setStudent] = useState(null);
     const [currSemester, setSemester] = useState('All Students');
     const [currNotes, setNotes] = useState({});
-    const [toggle, setToggle] = useState(false);
     const [name, setName] = useState('');
     const [comment, setComment] = useState('');
 
@@ -21,19 +18,14 @@ export default function Test(){
     let years = new Set(["1"]);
     Students.forEach(student => years.add(student.cohort.cohortCode));
     let list = [];
-
-
     years.forEach(year => {
         list.push(year)
     })
-
   let list2 = list.sort((a, b) => {return a.localeCompare(b, undefined, {
     numeric: false,
     sensitivity: 'base'
 })})
-
  let list2025 = list2.filter(item =>item.includes('2025'));
-
  let list2026 = list2.filter(item => item.includes('2026'));
  let list4 = list2026.concat(list2025);
  list4.unshift("All Students");
@@ -58,7 +50,7 @@ export default function Test(){
             function handleSubmit(event) {
                 event.preventDefault();
                 let tmp = currNotes
-                tmp[currStudent.id].push({commenter: name, comment: comment})
+                if (name && comment) tmp[currStudent.id].push({commenter: name, comment: comment})
             setNotes({...tmp})
                 
         }
@@ -85,47 +77,22 @@ export default function Test(){
             <div className="title"><em><span>{student.names.preferredName} {student.names.middleName.charAt(0)}. {student.names.surname}</span></em></div>
             <div className={graduate(student).ready}> <em><span>{graduate(student).Graduate}</span></em></div>
             <div><span className="textpadding"><strong>Birthday:</strong> {new Date(student.dob).toLocaleDateString('en-us', { year:"numeric", month:"long", day:"numeric"})}</span></div>
-            <div><span className="textpadding"><strong>Username: </strong>{student.username} </span><button className='expanddong right' onClick={() => {setStudent({...student}); addNotes([student.id], student.notes); setToggle(!toggle); console.log(currNotes)}}> {toggle && currStudent && (currStudent.id === student.id) ? <strong>-</strong> : <strong>+</strong>} </button></div>
-            
-            {toggle && currStudent && (currStudent.id === student.id) ? 
-            <>
-                <div className='statistics'>
-                    <Codewars codewars={student.codewars} />
-                    <Assignments cohort={student.cohort} />
-                    <Certifications certifications={student.certifications} />
-                </div>
-
-                <div>
-                    <div className='center'><form onSubmit={handleSubmit}>
-                        
-                        <label htmlFor='name'>Name</label>
-                        <span className='right'><input
-                            id="name"
-                            name="name"
-                            type="text"
-                            onChange={(event) => setName(event.target.value)}
-                        /> </span><br></br>
-                        <label htmlFor='comment'>Comment</label>
-                        <span className='right'><input id="comment" name="comment"
-                            type="text"
-                            onChange={(event) => setComment(event.target.value)}
-                        /></span><br></br>
-                        <button type="submit">Submit</button>
-                        </form>
-                     </div>
-                    <div>{notes(student)}</div>
-                </div>
-            </>
-            : null}
-
+            <div><span className="textpadding"><strong>Username: </strong>{student.username} </span></div>
+            <Statistics addNotes={addNotes} currNotes={currNotes} currStudent={currStudent} setStudent={setStudent} student={student} codewars={student.codewars} cohort={student.cohort} certifications={student.certifications} notes={notes} setComment={setComment} handleSubmit={handleSubmit} setName={setName}/>
         </div>
         )})
 
         
   
     return ( 
-    <><div className='left'><div><h2>{currSemester.match(/[a-z]+|[^a-z]+/gi).join(' ')}</h2></div>
-    <div><h4>Total Students: {currStudentlist.length}</h4></div>
+    <>
+    <div className='left'>
+        <div>
+            <h2>{currSemester.match(/[a-z]+|[^a-z]+/gi).join(' ')}</h2>
+        </div>
+    <div>
+        <h4>Total Students: {currStudentlist.length}</h4>
+        </div>
     <select onChange={(event) => { console.log(event.target.value); setSemester(event.target.value)}}> {list3} </select></div>
     <div>{studentCards}</div>
     </>)

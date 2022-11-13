@@ -13,7 +13,7 @@ export default function Codewars({codewars}) {
             color = 'green';
         }
 
-        return {color: color, totalpoints: current.total, lastWeekTotal: current.lastWeek, goal: goal.total,total:  total +"%", lastWeek: "Total Reached: " +(current.lastWeek /goal.lastWeek) * 100 +"%"}
+        return {color: color + " right", totalpoints: current.total, lastWeekTotal: current.lastWeek, goal: goal.total,total:  total +"%", lastWeek: "Total Reached: " +(current.lastWeek /goal.lastWeek) * 100 +"%"}
     }
 
 return (

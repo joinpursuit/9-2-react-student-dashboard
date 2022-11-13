@@ -72,10 +72,11 @@
     font-size: .6em;
     margin-left: 60px;
     margin-right: 60px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     margin-bottom: 30px;
-    padding: 2%;
+    /* padding: 2%; */
 }
+
 
 .statistics h3{
     background: #1E1E1E;
@@ -106,6 +107,8 @@
     margin-bottom: 5%;
 }
 
+
+
 .photo {
     grid-row: span 16;
     background: #1E1E1E;
@@ -121,11 +124,10 @@
     filter: grayscale(80%);
 }
 
-.photo:hover{
+.header:hover, .title:hover, .student:hover + .photo img{
     filter: grayscale(0%);
     transition: filter .2s;
 }
-
 
 .title {
     padding-top: 10px;
@@ -233,13 +235,13 @@ input{
     background: #D9D9D9;
     border: none;
     border-bottom: 2px solid #4844EC;
-    width: 40%;
+    width: 80%;
 }
 form button{
     margin-top: 10px;
     margin-left: 35%;
     background:#4844EC;
-    padding: 5px;
+    padding: 8px;
     border-radius: 10px;
     border: none;
     color: lightgray;
