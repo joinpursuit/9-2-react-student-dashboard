@@ -1,0 +1,275 @@
+#root{
+    background-color: #3F3F44;
+    background-image: url('./logo.png');
+}
+
+.main {
+    width: 100vw;
+    background: #1E1E1E;
+    font-family: Arial, Helvetica, sans-serif;
+    display: grid;
+    grid-template-columns: 2fr 6fr;
+    grid-template-rows: .1fr 6fr;
+    padding: 0px;
+    margin: 0px;
+}
+
+.dark{
+    background: #3F3F44;
+    height: auto;
+    width: 77vw;
+    float:left;
+    margin-right: 20%;
+}
+
+.left{
+    position: absolute;
+    bottom: 40;
+    right: 85%;
+    color: lightgray;
+
+}
+
+.textpadding{
+    padding: 5%;
+    font-size: 0.5em;
+}
+
+.heading {
+    grid-column: span 10fr;
+    grid-row: 0/.1;
+    background-size: 100px;
+    background: #4844EC;
+    padding-left: 10%;
+    padding-top: 2%;
+    border-bottom: 2px solid #312fb3;
+}
+
+.heading h1{
+    color: #D9D9D9;
+    margin-top:100px;
+    display: inline;
+    text-shadow: 2px 2px 0px black;
+}
+
+.heading img {
+    display: inline;
+    width: 5%;
+    height:auto;
+    float: right;
+    margin-bottom: 2%;
+}
+
+.spacer {
+    margin-left: 30%;
+    margin-right: 30%
+}
+
+.statistics{
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+    font-size: .6em;
+    margin-left: 60px;
+    margin-right: 60px;
+    /* margin-top: 20px; */
+    margin-bottom: 30px;
+    /* padding: 2%; */
+}
+
+
+.statistics h3{
+    background: #1E1E1E;
+    color:#D9D9D9;
+    font-size: 1.5em;
+    padding: 1%;
+    text-align: center;
+}
+
+.student {
+    display:grid;
+    grid-template-columns: 2fr 12fr;
+    grid-template-rows: 1.6fr 1fr .5fr .5fr;
+    box-shadow: 7px 10px 5px 1px #4844EC;
+    background: #D9D9D9;
+    width: 48vw;
+    height: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 10%;
+    transform: skewX(-1deg);
+    transition: transform .2s, box-shadow .2s, height 1s;
+}
+
+.student:hover{
+    transform: scale(1.1);
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 12px 15px 10px 1px #4844EC;
+    margin-bottom: 5%;
+}
+
+
+
+.photo {
+    grid-row: span 16;
+    background: #1E1E1E;
+}
+
+.photo img{
+    border-width: 5px 5px 5px 5px;
+    margin-bottom: 0px;
+    border-style: solid;
+    border-color: #1E1E1E;
+    height: 14vh;
+    width: auto;
+    filter: grayscale(50%);
+}
+
+.header:hover, .title:hover, .student:hover, .photo img:hover{
+    filter: grayscale(0%);
+    transition: filter .2s;
+}
+
+.title {
+    padding-top: 10px;
+    background:#1E1E1E;
+    width:100%;
+    height: auto;
+    text-align: right;
+    color: lightgray;
+}
+
+.title span{
+    font-size: larger;
+    padding-right: 15%;
+    vertical-align: middle;
+    font-weight: 900;
+}
+
+.ready {
+    background:#36CA95;
+    width:100%;
+    height: 80%;
+    text-align: right; 
+    font-size: smaller;
+}
+
+.ready span{
+    padding-right: 15%;
+    padding-top: 10px;
+}
+
+.red {
+    color: #CA366B;
+    font-weight: 900;
+}
+.yellow {
+    color: goldenrod;
+}
+.green{
+    font-weight: 900;
+    color: rgb(17, 150, 126);
+}
+
+
+.notready {
+    background:#CA366B;
+    width:100%;
+    height: 80%;
+    text-align: right; 
+    font-size: smaller;
+}
+
+.notready span{
+    padding-right: 15%;
+    padding-top: 10px;
+}
+
+li {
+    list-style: none;
+}
+
+.expanddong {
+    margin-bottom:5px;
+    background:#36CA95;
+    border: 1px solid #209d6d;
+    color: #1E1E1E;
+    font-size: x-small;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    transition: background .5s;
+}
+
+.expanddong:hover{
+    background: #4844EC;
+    transition: background .5s;
+}
+
+div.form
+{
+    display: block;
+    text-align: center;
+}
+form{
+    display: inline-block;
+    margin-left: 25%;
+    margin-right: auto;
+    text-align: left;
+}
+
+
+form label{
+    font-weight: 900;
+    margin-right: 40px;
+}
+
+
+.center{
+    align-content: center;
+}
+
+input{
+    background: #D9D9D9;
+    border: none;
+    border-bottom: 2px solid #4844EC;
+    width: 80%;
+}
+form button{
+    margin-top: 10px;
+    margin-left: 35%;
+    background:#4844EC;
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+    color: lightgray;
+}
+
+form button:hover{
+    box-shadow: inset 2px 2px 0px  #36CA95;
+}
+
+.right{
+    float:right;
+    margin-right: 4%;
+}
+
+a{
+    text-decoration: none;
+    color:#CA366B;
+    transition: color .2s;
+}
+
+a:hover{
+    color:#36CA95;
+    transition: color .2s;
+}
+
+.marginr{
+    margin-right: 15px;
+}
+
+.marginl{
+    margin-left: 15px;
+}
+
+
