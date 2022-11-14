@@ -198,10 +198,6 @@ li {
     border-radius: 100%;
     transition: background .5s;
 }
-.right{
-    float:right;
-    margin-right: 4%;
-}
 
 .expanddong:hover{
     background: #4844EC;
@@ -245,4 +241,16 @@ form button{
     border-radius: 10px;
     border: none;
     color: lightgray;
+}
+.right{
+    float:right;
+    margin-right: 4%;
+}
+
+.paddingl {
+    margin-left: 10px;
+}
+
+.paddingr {
+    margin-right: 2%;
 }

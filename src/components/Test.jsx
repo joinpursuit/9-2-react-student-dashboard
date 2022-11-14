@@ -5,7 +5,6 @@ import Statistics from './Statistics';
 
 import {useState} from 'react';
 
-
 export default function Test(){
     const [currStudent, setStudent] = useState(null);
     const [currSemester, setSemester] = useState('All Students');

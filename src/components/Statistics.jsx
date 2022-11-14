@@ -2,7 +2,7 @@ import Codewars from './Codewars'
 import Assignments from './Assignments'
 import Certifications from './Certifications'
 import Forms from './Forms'
-
+import "../index.css";
 import {useState} from 'react'
 
 export default function Statistics ({addNotes, currNotes, currStudent, setStudent, notes,  setComment, handleSubmit, student, setName}){
@@ -10,7 +10,7 @@ export default function Statistics ({addNotes, currNotes, currStudent, setStuden
     const {certifications, codewars, cohort} = student;
  
    return (<>
-   <button className='expanddong right' onClick={() => {setStudent({...student}); addNotes([student.id], student.notes); setToggle(!toggle); console.log(currNotes)}}> {toggle && currStudent && (currStudent.id === student.id) ? <strong>-</strong> : <strong>+</strong>} </button>
+   <div className='right'><button className='expanddong right' onClick={() => {setStudent({...student}); addNotes([student.id], student.notes); setToggle(!toggle); console.log(currNotes)}}> {toggle && currStudent && (currStudent.id === student.id) ? <strong>-</strong> : <strong>+</strong>} </button></div>
    {toggle ? 
    <>
         <div className='statistics'>
