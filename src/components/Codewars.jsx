@@ -13,15 +13,15 @@ export default function Codewars({codewars}) {
             color = 'green';
         }
 
-        return {color: color + " right", totalpoints: current.total, lastWeekTotal: current.lastWeek, goal: goal.total,total:  total +"%", lastWeek: "Total Reached: " +(current.lastWeek /goal.lastWeek) * 100 +"%"}
+        return {color: color + " right marginr", totalpoints: current.total, lastWeekTotal: current.lastWeek, goal: goal.total,total:  total +"%", lastWeek: "Total Reached: " +(current.lastWeek /goal.lastWeek) * 100 +"%"}
     }
 
 return (
 <div>
     <div><h3>Codewars</h3></div>
-    <div><strong>Current Total:</strong> <span className="right">{codewarscalc(codewars).totalpoints}</span></div>
-    <div><strong>Last Week Total:</strong> <span className="right">{codewarscalc(codewars).lastWeekTotal}</span></div>
-    <div><strong>Goal:</strong> <span className="right">{codewarscalc(codewars).goal}</span></div>
-    <div><strong>Total Reached:</strong> <span className={codewarscalc(codewars).color}>{codewarscalc(codewars).total}</span></div>
+    <div><strong className="marginl">Current Total:</strong> <span className="right marginr">{codewarscalc(codewars).totalpoints}</span></div>
+    <div><strong className="marginl">Last Week Total:</strong> <span className="right marginr">{codewarscalc(codewars).lastWeekTotal}</span></div>
+    <div><strong className="marginl">Goal:</strong> <span className="right marginr">{codewarscalc(codewars).goal}</span></div>
+    <div><strong className="marginl">Total Reached:</strong> <span className={codewarscalc(codewars).color}>{codewarscalc(codewars).total}</span></div>
 </div>)
 }

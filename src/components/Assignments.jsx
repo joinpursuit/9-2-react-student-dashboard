@@ -8,9 +8,9 @@ export default function Assignments({cohort}){
 return (
 <div>
     <div><h3>Assignments</h3></div>
-    <div><strong>Assignments: </strong> <span className="right">{assignments(cohort).assignments}</span></div>
-    <div><strong>Projects: </strong><span className="right">{assignments(cohort).projects}</span></div>
-    <div><strong>Assessments: </strong><span className="right">{assignments(cohort).assessments}</span></div>
+    <div><strong className="marginl">Assignments: </strong> <span className="right marginr">{assignments(cohort).assignments}</span></div>
+    <div><strong className="marginl">Projects: </strong><span className="right marginr">{assignments(cohort).projects}</span></div>
+    <div><strong className="marginl">Assessments: </strong><span className="right marginr">{assignments(cohort).assessments}</span></div>
 </div>
 )
 }
