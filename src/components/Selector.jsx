@@ -22,13 +22,14 @@ let list3 = list4.map(item =>{
 return <h3><Link to={item}> {item.match(/[a-z]+|[^a-z]+/gi).join(' ')} </Link></h3>});
 
 return (
-    <> <div className='left'>
-    <div>
-        <h2>{currSemester.year.match(/[a-z]+|[^a-z]+/gi).join(' ')}</h2>
-    </div>
-    <div>
-        <h4>Total Students: <span className="green">{currSemester.total} </span></h4>
-    </div>{list3}
-</div></>
+    <> 
+        <div className='left center'>
+            <div>
+                <h2>{currSemester.year.match(/[a-z]+|[^a-z]+/gi).join(' ')}</h2>
+            </div>
+            <div>
+                <h4>Total Students: <span className="green">{currSemester.total} </span></h4>
+            </div>{list3}</div>
+    </>
 )
 }

@@ -7,6 +7,8 @@ import {useState} from 'react'
 
 export default function Statistics ({addNotes, currNotes, currStudent, setStudent, notes,  setComment, handleSubmit, student, setName}){
     const [toggle, setToggle] = useState(false);
+
+
     const {certifications, codewars, cohort} = student;
  
    return (<>

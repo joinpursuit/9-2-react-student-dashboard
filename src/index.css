@@ -97,9 +97,9 @@
     margin-bottom: 5%;
     margin-left: 10%;
     transform: skewX(-1deg);
-    position: relative;
-    transition: transform .2s, box-shadow .2s;
+    transition: transform .2s, box-shadow .2s, height 1s;
 }
+
 .student:hover{
     transform: scale(1.1);
     transition: transform .2s, box-shadow .2s;
@@ -124,7 +124,7 @@
     filter: grayscale(50%);
 }
 
-.header:hover, .title:hover, .student:hover + .photo img{
+.header:hover, .title:hover, .student:hover, .photo img:hover{
     filter: grayscale(0%);
     transition: filter .2s;
 }
@@ -271,3 +271,5 @@ a:hover{
 .marginl{
     margin-left: 15px;
 }
+
+

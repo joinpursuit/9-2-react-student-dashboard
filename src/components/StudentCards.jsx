@@ -19,13 +19,10 @@ year === "All Students" || !year
   : student.cohort.cohortCode === year
 );
 
-let yearfull = year.match(/[a-z]+|[^a-z]+/gi).join(' ');
-console.log(yearfull)
-
+let yearfull = year;
 
  useEffect((yearfull) => { setSemester({year: String(year.match(/[a-z]+|[^a-z]+/gi).join(' ')) || "All Students", total: String(currStudentlist.length)})}, [yearfull])
 
-console.log(currStudentlist)
 
 
     const studentCards = currStudentlist.map(student => {
@@ -49,7 +46,6 @@ console.log(currStudentlist)
         }
 
             function addNotes(student, note){
-                
                 setNotes({...currNotes, [student]: note});
             
         }
