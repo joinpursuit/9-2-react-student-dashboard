@@ -19,9 +19,9 @@ year === "All Students" || !year
   : student.cohort.cohortCode === year
 );
 
-let yearfull = year;
+let yearfull = year || "All Students";
 
- useEffect((yearfull) => { setSemester({year: String(year.match(/[a-z]+|[^a-z]+/gi).join(' ')) || "All Students", total: String(currStudentlist.length)})}, [yearfull])
+ useEffect((year) => { setSemester({year: year ? String(year.match(/[a-z]+|[^a-z]+/gi).join(' ')) : "All Students", total: String(currStudentlist.length)})}, [yearfull])
 
 
 
