@@ -1,0 +1,28 @@
+header {
+    background-color: rgb(61, 110, 61);
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    padding: 10px;
+}
+
+.green {
+    color: green;
+    font-weight: bold;
+}
+
+.yellow {
+    color: rgb(191, 191, 2);
+    font-weight: bold;
+}
+
+.red {
+    color: red;
+    font-weight: bold;
+}
+
+.icon {
+    width: 25px;
+}
