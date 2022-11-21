@@ -1,6 +1,7 @@
 import React from 'react'
+import Student from './Student';
 
-function CohortList({ students }) {
+function CohortList({ students, handleCohortSelect, handleHumanReadableCohort }) {
     const cohortsCount = {};
     students.forEach(student => {
         cohortsCount[student.cohort.cohortCode] = cohortsCount[student.cohort.cohortCode] + 1 || 1;
@@ -11,13 +12,10 @@ function CohortList({ students }) {
     <div className='CohortList'>
       <h2>Choose a Class by Start Date</h2>
       <ul>
-        <li key="all">All Students</li>
-        {Object.keys(cohortsCount).map((cohort) => {
-            const cohortArr = cohort.split("");
-            let i = cohort.indexOf("2");
-            cohortArr.splice(i, 0, " ")
+        <li key="all" className='AllStudents' onClick={() => handleCohortSelect("All Students")}>All Students</li>
+        {Object.keys(cohortsCount).map((cohortCode) => {
             return (
-                <li>{cohortArr.join("")}</li>
+                <li key={Math.random()} onClick={() => handleCohortSelect(cohortCode)}>{handleHumanReadableCohort(cohortCode)}</li>
             )
         })
         }
