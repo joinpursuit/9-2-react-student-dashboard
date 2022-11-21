@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
+import X from "../imgs/x-icon.png"
+import Check from "../imgs/check-icon.png"
 
 function onTrackToGraduate(student) {
     const cert = student.certifications
@@ -13,6 +15,10 @@ function StudentList({ students, cohort, handleHumanReadableCohort }) {
 
     function toggleShowMore(event) {
         console.log(event.target)
+    }
+
+    function percentClassName(percent) {
+        return percent >= 100 ? "green" : percent >= 50 ? "yellow" : "red";
     }
 
   return (
@@ -36,7 +42,7 @@ function StudentList({ students, cohort, handleHumanReadableCohort }) {
                                 <li>Current Total: {student.codewars.current.total}</li>
                                 <li>Last Week: {student.codewars.current.lastWeek}</li>
                                 <li>Goal: {student.codewars.goal.total}</li>
-                                <li>Percent of Goal Achieved: {((student.codewars.current.total / student.codewars.goal.total)*100).toFixed()}%</li>
+                                <li>Percent of Goal Achieved: <span className={percentClassName(((student.codewars.current.total / student.codewars.goal.total)*100).toFixed())}>{((student.codewars.current.total / student.codewars.goal.total)*100).toFixed()}%</span></li>
 
                                 <h3>Scores</h3>
                                 <li>Assignments: {student.cohort.scores.assignments * 100}%</li>
@@ -44,10 +50,10 @@ function StudentList({ students, cohort, handleHumanReadableCohort }) {
                                 <li>Assessments: {student.cohort.scores.assessments * 100}%</li>
 
                                 <h3>Certifications</h3>
-                                <li>Resume: {student.certifications.resume ? "YES" : "NO"}</li>
-                                <li>LinkedIn: {student.certifications.linkedin ? "YES" : "NO"}</li>
-                                <li>GitHub: {student.certifications.github ? "YES" : "NO"}</li>
-                                <li>Mock Interview: {student.certifications.mockInterview ? "YES" : "NO"}</li>
+                                <li>Resume: {student.certifications.resume ? <img src={Check} className="icon" /> : <img src={X} className="icon" />}</li>
+                                <li>LinkedIn: {student.certifications.linkedin ? <img src={Check} className="icon" /> : <img src={X} className="icon" />}</li>
+                                <li>GitHub: {student.certifications.github ? <img src={Check} className="icon" /> : <img src={X} className="icon" />}</li>
+                                <li>Mock Interview: {student.certifications.mockInterview ? <img src={Check} className="icon" /> : <img src={X} className="icon" />}</li>
                             </>
                             
                         ) : null}
