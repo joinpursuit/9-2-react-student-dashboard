@@ -12,6 +12,7 @@ function onTrackToGraduate(student) {
 
 function StudentList({ students, cohort, handleHumanReadableCohort }) {
     const [clicked, setClicked] = useState("");
+    const [comments, setComments] = useState([]);
 
     function toggleShowMore(event) {
         console.log(event.target)
@@ -19,6 +20,14 @@ function StudentList({ students, cohort, handleHumanReadableCohort }) {
 
     function percentClassName(percent) {
         return percent >= 100 ? "green" : percent >= 50 ? "yellow" : "red";
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        console.log(e.target.name.value)
+        let str = `${e.target.name.value} says, "${e.target.comment.value}"`
+        console.log(str)
+        setComments([...comments, str])
     }
 
   return (
@@ -58,6 +67,27 @@ function StudentList({ students, cohort, handleHumanReadableCohort }) {
                             
                         ) : null}
                     </ul>
+                    <div className='notes'>
+                        <h3>1-on-1 Notes</h3>
+                        <form onSubmit={(e) => handleSubmit(e)}>
+                            <label htmlFor="name">Commenter Name</label>
+                            <input type="text" name="name" id="name" />
+                            <label htmlFor="comment">Comment</label>
+                            <input type="text" name="comment" id="comment" />
+                            <input type="submit" />
+                        </form>
+
+                        {comments.length > 0 ? (
+                            <ul>
+                            {comments.map(comment => {
+                            return (
+                                <li>{comment}</li>
+                            )
+                        })}
+                        </ul>): null }
+
+                    </div>
+
                     
                 </div>
             )
