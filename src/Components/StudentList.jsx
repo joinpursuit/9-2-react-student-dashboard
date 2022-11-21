@@ -28,6 +28,8 @@ function StudentList({ students, cohort, handleHumanReadableCohort }) {
         let str = `${e.target.name.value} says, "${e.target.comment.value}"`
         console.log(str)
         setComments([...comments, str])
+        e.target.name.value = "";
+        e.target.comment.value = "";
     }
 
   return (
