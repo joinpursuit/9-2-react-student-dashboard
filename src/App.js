@@ -4,9 +4,15 @@ import { useState } from "react";
 import CohortList from "./Components/CohortList";
 
 function App() {
-  const [cohort, setCohort] = useState("All Students");
+  const [cohort, setCohort] = useState(students);
 
-  function handleCohortSelect() {}
+  function handleCohortSelect(cohortCode) {
+    const cohortArr = students.filter((student) => {
+      return student.cohort.cohortCode === cohortCode;
+    });
+    setCohort(cohortArr);
+    // return { cohortCode: cohortArr };
+  }
 
   function handleHumanReadableCohort(cohortCode) {
     const cohortArr = cohortCode.split("");
@@ -22,8 +28,13 @@ function App() {
         students={students}
         handleCohortSelect={handleCohortSelect}
         handleHumanReadableCohort={handleHumanReadableCohort}
+        setCohort={setCohort}
       />
-      <StudentList students={students} />
+      <StudentList
+        students={students}
+        cohort={cohort}
+        handleHumanReadableCohort={handleHumanReadableCohort}
+      />
     </div>
   );
 }
