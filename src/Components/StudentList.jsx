@@ -10,7 +10,7 @@ function StudentList({ students }) {
                 <div className='student'>
                     <img src={student.profilePhoto} alt={student.names.preferredName} />
                     <ul>
-                        <li>{student.names.preferredName} {student.names.middleName[0]}. {student.names.surname}</li>
+                        <li key={student.id}>{student.names.preferredName} {student.names.middleName[0]}. {student.names.surname}</li>
                         <li>{student.username}</li>
                     </ul>
                 </div>
