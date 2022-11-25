@@ -15,10 +15,16 @@ function App() {
       return studentId === student.id;
     });
     filteredStudent.notes.push({ commenter: commentator, comment });
-    setStudents([...students]);
+    setStudents([
+      filteredStudent,
+      ...students.filter((student) => student.id !== studentId),
+    ]);
   }
 
   function filterProfileList(strCohort) {
+    if (strCohort === "All Students") {
+      return students;
+    }
     return students.filter((e) => {
       return e.cohort.cohortCode === strCohort;
     });
@@ -40,14 +46,14 @@ function App() {
           </div>
 
           <div className="profileList">
-            {cohort === "All Students" ? (
+            {/* {cohort === "All Students" ? (
               <ProfileList data={students} addNewNote={addNewNote} />
-            ) : (
-              <ProfileList
-                data={filterProfileList(cohort)}
-                addNewNote={addNewNote}
-              />
-            )}
+            ) : ( */}
+            <ProfileList
+              data={filterProfileList(cohort)}
+              addNewNote={addNewNote}
+            />
+            {/* )} */}
           </div>
         </div>
       </main>

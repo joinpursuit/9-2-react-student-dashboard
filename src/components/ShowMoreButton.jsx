@@ -23,11 +23,13 @@ function ShowMoreButton({ props, addNewNote }) {
     if (data.notes.length === 0) {
       return <li id="no-comment">no comments added yet..</li>;
     } else {
-      return (
-        <li id="added-comment">
-          {data.notes[0].commenter} Said: "{data.notes[0].comment}"
-        </li>
-      );
+      return data.notes.map((e) => {
+        return (
+          <li key={e.comment} id="added-comment">
+            {e.commenter} Said: {e.comment}
+          </li>
+        );
+      });
     }
   }
 
@@ -69,7 +71,7 @@ function ShowMoreButton({ props, addNewNote }) {
                 {goalPercent > 50 && goalPercent < 100 && (
                   <h5>
                     <span>Percent of goal achieved: </span>
-                    <span className="yellow">{goalPercent}%</span>
+                    <span style={{ color: "yellow" }}>{goalPercent}%</span>
                   </h5>
                 )}
                 {goalPercent <= 50 && (

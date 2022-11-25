@@ -1,8 +1,7 @@
 import React from "react";
-import { useState } from "react";
 
 function CommentsSection({ addNewNote, students }) {
-  function onSubmitNote(e) {
+  function handleSubmit(e) {
     e.preventDefault();
     addNewNote(students, e.target.comment.value, e.target.commentator.value);
   }
@@ -13,7 +12,7 @@ function CommentsSection({ addNewNote, students }) {
         <h4>1-On-1 Notes</h4>
       </u>
 
-      <form onSubmit={onSubmitNote}>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="commentator">
           Commentator: <input id="commentator" type="text" name="commentator" />
         </label>{" "}
