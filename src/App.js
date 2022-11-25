@@ -46,14 +46,10 @@ function App() {
           </div>
 
           <div className="profileList">
-            {/* {cohort === "All Students" ? (
-              <ProfileList data={students} addNewNote={addNewNote} />
-            ) : ( */}
             <ProfileList
               data={filterProfileList(cohort)}
               addNewNote={addNewNote}
             />
-            {/* )} */}
           </div>
         </div>
       </main>
