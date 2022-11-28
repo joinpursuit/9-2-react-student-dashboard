@@ -1,5 +1,3 @@
-
-
 import Statistics from './Statistics';
 
 import {useState, useEffect } from 'react';
@@ -21,6 +19,7 @@ year === "All Students" || !year
 
 let yearfull = year || "All Students";
 
+// eslint-disable-next-line 
  useEffect((year) => { setSemester({year: year ? String(year.match(/[a-z]+|[^a-z]+/gi).join(' ')) : "All Students", total: String(currStudentlist.length)})}, [yearfull])
 
 
@@ -41,8 +40,8 @@ let yearfull = year || "All Students";
                 event.preventDefault();
                 let tmp = currNotes
                 if (name && comment) tmp[currStudent.id].push({commenter: name, comment: comment})
-            setNotes({...tmp})
-                
+            setNotes({...tmp});
+
         }
 
             function addNotes(student, note){

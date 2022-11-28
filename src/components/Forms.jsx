@@ -1,4 +1,4 @@
-export default function Forms({addNotes, setNotes, notes, setComment, handleSubmit, student, setName}){
+export default function Forms({ notes, setComment, handleSubmit, student, setName}){
 
 return (<div>
                     <div className='center'><form onSubmit={handleSubmit}>
@@ -13,7 +13,7 @@ return (<div>
                         <label htmlFor='comment'>Comment</label>
                         <span className='right'><input id="comment" name="comment"
                             type="text"
-                            onChange={(event) => setComment(event.target.value)}
+                            onChange={(event) => {setComment(event.target.value); event.target.reset()}}
                         /></span><br></br>
                         <button type="submit">Submit</button>
                         </form>
