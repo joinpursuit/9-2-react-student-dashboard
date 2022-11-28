@@ -11,7 +11,8 @@ export default function Statistics ({addNotes, currNotes, currStudent, setStuden
 
     const {certifications, codewars, cohort} = student;
  
-   return (<>
+   return (
+   <>
    <div className='right'><button className='expanddong right' onClick={() => {setStudent({...student}); addNotes([student.id], student.notes); setToggle(!toggle); console.log(currNotes)}}> {toggle && currStudent && (currStudent.id === student.id) ? <strong>-</strong> : <strong>+</strong>} </button></div>
    {toggle ? 
    <>
