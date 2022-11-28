@@ -38,7 +38,6 @@
 .heading {
     grid-column: span 10fr;
     grid-row: 0/.1;
-    background-image: url('./logo.png');
     background-size: 100px;
     background: #4844EC;
     padding-left: 10%;
@@ -95,13 +94,14 @@
     width: 48vw;
     height: auto;
     margin-top: 5%;
+    margin-bottom: 5%;
     margin-left: 10%;
     transform: skewX(-1deg);
-    position: relative;
-    transition: transform .2s, box-shadow .2s;
+    transition: transform .2s, box-shadow .2s, height 1s;
 }
+
 .student:hover{
-    transform: scale(1.2);
+    transform: scale(1.1);
     transition: transform .2s, box-shadow .2s;
     box-shadow: 12px 15px 10px 1px #4844EC;
     margin-bottom: 5%;
@@ -121,10 +121,10 @@
     border-color: #1E1E1E;
     height: 14vh;
     width: auto;
-    filter: grayscale(80%);
+    filter: grayscale(50%);
 }
 
-.header:hover, .title:hover, .student:hover + .photo img{
+.header:hover, .title:hover, .student:hover, .photo img:hover{
     filter: grayscale(0%);
     transition: filter .2s;
 }
@@ -159,7 +159,8 @@
 }
 
 .red {
-    color: red;
+    color: #CA366B;
+    font-weight: 900;
 }
 .yellow {
     color: goldenrod;
@@ -242,15 +243,33 @@ form button{
     border: none;
     color: lightgray;
 }
+
+form button:hover{
+    box-shadow: inset 2px 2px 0px  #36CA95;
+}
+
 .right{
     float:right;
     margin-right: 4%;
 }
 
-.paddingl {
-    margin-left: 10px;
+a{
+    text-decoration: none;
+    color:#CA366B;
+    transition: color .2s;
 }
 
-.paddingr {
-    margin-right: 2%;
+a:hover{
+    color:#36CA95;
+    transition: color .2s;
 }
+
+.marginr{
+    margin-right: 15px;
+}
+
+.marginl{
+    margin-left: 15px;
+}
+
+

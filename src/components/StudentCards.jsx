@@ -1,39 +1,30 @@
 
-import Students from '../data/data.json';
 
 import Statistics from './Statistics';
 
-import {useState} from 'react';
+import {useState, useEffect } from 'react';
+import { useParams } from "react-router-dom";
 
-export default function Test(){
+export default function StudentCards({Students, setSemester}){
     const [currStudent, setStudent] = useState(null);
-    const [currSemester, setSemester] = useState('All Students');
     const [currNotes, setNotes] = useState({});
     const [name, setName] = useState('');
     const [comment, setComment] = useState('');
 
+const {year} = useParams();
+
+const currStudentlist = Students.filter((student) =>
+year === "All Students" || !year
+  ? student
+  : student.cohort.cohortCode === year
+);
+
+let yearfull = year || "All Students";
+
+ useEffect((year) => { setSemester({year: year ? String(year.match(/[a-z]+|[^a-z]+/gi).join(' ')) : "All Students", total: String(currStudentlist.length)})}, [yearfull])
 
 
-    let years = new Set(["1"]);
-    Students.forEach(student => years.add(student.cohort.cohortCode));
-    let list = [];
-    years.forEach(year => {
-        list.push(year)
-    })
-  let list2 = list.sort((a, b) => {return a.localeCompare(b, undefined, {
-    numeric: false,
-    sensitivity: 'base'
-})})
- let list2025 = list2.filter(item =>item.includes('2025'));
- let list2026 = list2.filter(item => item.includes('2026'));
- let list4 = list2026.concat(list2025);
- list4.unshift("All Students");
-    let list3 = list4.map(item =>{ 
-    return <option value={item} key={item}> {item.match(/[a-z]+|[^a-z]+/gi).join(' ')} </option>});
 
-
-    const currStudentlist = Students.filter(student => currSemester === "All Students" ? student: student.cohort.cohortCode === currSemester);
-   
     const studentCards = currStudentlist.map(student => {
 
         function graduate(student){
@@ -55,7 +46,6 @@ export default function Test(){
         }
 
             function addNotes(student, note){
-                
                 setNotes({...currNotes, [student]: note});
             
         }
@@ -85,14 +75,14 @@ export default function Test(){
   
     return ( 
     <>
-    <div className='left'>
+    {/* <div className='left'>
         <div>
             <h2>{currSemester.match(/[a-z]+|[^a-z]+/gi).join(' ')}</h2>
         </div>
-    <div>
-        <h4>Total Students: {currStudentlist.length}</h4>
+        <div>
+            <h4>Total Students: {currStudentlist.length}</h4>
         </div>
-    <select onChange={(event) => { console.log(event.target.value); setSemester(event.target.value)}}> {list3} </select></div>
+    <select onChange={(event) => { console.log(event.target.value); setSemester(event.target.value)}}> {list3} </select></div> */}
     <div>{studentCards}</div>
     </>)
         }

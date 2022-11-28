@@ -3,10 +3,10 @@ export default function Certifications({certifications}){
         const {linkedin, resume, github, mockInterview} = student;
         return (
         <>
-            <li><strong>LinkedIn:</strong> <span className="right">{linkedin? "✅" : "❌"}</span></li>
-            <li><strong>Resume:</strong> <span className="right">{resume? "✅" : "❌"}</span></li>
-            <li><strong>Github: </strong><span className="right">{github? "✅" : "❌"}</span></li>
-            <li><strong>Mock Interview: </strong><span className="right">{mockInterview? "✅" : "❌"}</span></li>
+            <div><strong className="marginl">LinkedIn:</strong> <span className="right marginr">{linkedin? "✅" : "❌"}</span></div>
+            <div><strong className="marginl">Resume:</strong> <span className="right marginr">{resume? "✅" : "❌"}</span></div>
+            <div><strong className="marginl">Github: </strong><span className="right marginr">{github? "✅" : "❌"}</span></div>
+            <div><strong className="marginl">Mock Interview: </strong><span className="right marginr">{mockInterview? "✅" : "❌"}</span></div>
         </>
         )
     }
@@ -14,6 +14,6 @@ export default function Certifications({certifications}){
 return(
 <div>
         <div><h3>Certifications</h3></div>
-        <ul>{certificationsli(certifications)}</ul>
+        <div>{certificationsli(certifications)}</div>
 </div>
 )}
