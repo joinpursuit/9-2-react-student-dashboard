@@ -1,0 +1,155 @@
+
+.body{
+    display: block;
+}
+
+/*** PAGE = PRIMARY DIV ***/
+
+.page {
+    display: grid;
+    grid-template-columns: [left] 1fr [right]2fr[end];
+    grid-template-rows: [header] 120px [main] auto[end];
+    grid-column-gap: 25px;
+    grid-row-gap: 25px;
+    column-gap: 25px;
+    row-gap: 25px;
+    background-image: linear-gradient(to bottom right, rgba(78, 149, 196, 0.42),
+            rgb(75, 148, 217));
+    font-family: helvetica;
+}
+/****** HEADER *****/
+.header {
+    display: grid;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+    background-color: rgb(13, 86, 135);
+    font-family: Helvetica;
+    color: white;
+    text-align: center;
+    grid-column: left/end;
+    grid-row: header;
+    box-shadow: 10px 10px 10px grey;
+}
+
+/*H1 in header*/
+#mainHeading {
+    font-size: 50px;
+}
+
+/****** MAIN & COHORTS ASIDE *****/
+.aside, .main {
+    grid-row: main;
+}
+
+.aside {
+    display: block;
+    width: 15%;
+    grid-column: left;
+    /* position: fixed;
+        top: 150px; */
+
+}
+
+.main {
+    display: block;
+    grid-column: right;
+    width: 85%;
+    margin: 0 auto;
+}
+
+
+/*Cohorts li hover*/
+.cohorts:hover {
+color: blue;
+}
+
+
+/****** STUDENT CARD & INFO *****/
+.studentCard{
+     display: grid;
+     grid-template-columns: [left] 1fr [right] 3fr ;
+    grid-column-gap: 25px;
+    padding: 25px;
+    margin-bottom: 5%;
+    background-image: linear-gradient(180deg, rgba(226, 234, 239, 0.42),
+                rgb(193, 200, 207));
+    border: 3px solid rgb(13, 86, 135);
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px grey;
+}
+
+/*Prifile photo in student card*/
+.profilePhoto {
+    display: block;
+    height: 175px;
+    width: 175px;
+    border-radius: 50%;
+    margin-left: 5%;
+    margin-top: 5%;
+    border: 2.5px solid rgb(13, 86, 135);
+}
+
+.studentInfo{
+    width: 100%;
+    margin-left: 50px;
+}
+
+.studentStats{
+    width: 100%;
+}
+
+.studentDetails{
+    display: grid;
+    grid-template-columns: 3fr;
+    grid-column: left/end;
+   
+}
+/*3 style elements based on classname for conditional rendering based on codewars percentages calculated in Student Details*/
+.high {
+    color: green;
+}
+
+.medium {
+    color: yellow;
+}
+
+.low {
+    color: red;
+}
+
+/****** COMMENT AND COMMENTER IN NEW NOTES SECTION *****/
+
+#commenter,
+#comment {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+/****** COHORTS *****/
+
+/*primary heading in Cohorta*/
+#cohortH2 {
+    margin-left: 50px;
+
+}
+/*li tags in Cohorts*/
+.cohorts {
+    font-size: 20px;
+}
+
+/*horizontal rules between each li in Cohorts*/
+hr {
+    height: 3px;
+    width: 100px;
+    margin-bottom: 10px;
+   background-color: rgb(13, 86, 135);
+box-shadow: 3px 3px 3px grey;
+}
+
+/*all article tags*/
+article {
+    display: block;
+}
